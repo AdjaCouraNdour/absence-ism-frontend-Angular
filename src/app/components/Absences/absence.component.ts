@@ -10,8 +10,6 @@ import { AbsenceModel } from '../../shared/models/absence.model';
   styleUrl: './absence.component.css'
 })
 
-
-
 export class AbsenceComponent {
 
   @Input({
@@ -21,7 +19,6 @@ export class AbsenceComponent {
 
   constructor(private router : Router ) {
   }
-
   onLoadViewJustifications(name : string){
     this.router.navigateByUrl(`/Justification/${name}`)
   }
