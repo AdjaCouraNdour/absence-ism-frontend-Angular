@@ -12,6 +12,7 @@ export class PointageService implements IPointageService{
 
   private apiUrl = 'http://localhost:8080/api/pointages/';
 
+  
     getAllPointages(): Observable<AbsenceModel[]> {
       return this.httpClient.get<any>(this.apiUrl);
     }

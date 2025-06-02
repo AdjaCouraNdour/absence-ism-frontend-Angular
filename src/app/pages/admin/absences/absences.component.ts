@@ -15,6 +15,7 @@ import { AbsenceComponent } from '../../../components/Absences/absence.component
 
 export class AbsencesComponent implements OnInit {
 
+  
  
   private absencesService: PointageService = inject(PointageService);
   absences$: Observable<any> = new Observable();

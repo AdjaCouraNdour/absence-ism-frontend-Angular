@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 export class JustificationComponent implements OnInit {
   absenceId!: string;
 
+  
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {

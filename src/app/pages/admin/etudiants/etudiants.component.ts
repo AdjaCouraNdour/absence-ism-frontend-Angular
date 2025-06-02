@@ -16,14 +16,6 @@ export class EtudiantsComponent implements OnInit {
   private etudiantsService: EtudiantService = inject(EtudiantService);
   etudiants$: Observable<any> = new Observable();
 
-  // ngOnInit(): void {
-
-  //   this.etudiants$ = this.etudiantsService.getEtudiants()
-  //   this.etudiants$.subscribe(data => console.log(data));
-
-  //   console.log(this.etudiants$)
-
-  // }
    ngOnInit(): void {
     this.etudiants$ = this.etudiantsService.getEtudiants()
       .pipe(

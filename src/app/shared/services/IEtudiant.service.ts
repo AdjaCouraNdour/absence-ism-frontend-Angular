@@ -7,4 +7,5 @@ export interface IEtudiantService {
     getById(Id: number): Observable<EtudiantModel> ;
     getListeAbsences(IdEtudiant: number): Observable<EtudiantModel> ;
 
+    
 }

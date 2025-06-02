@@ -12,6 +12,7 @@ describe('AbsenceComponent', () => {
     })
     .compileComponents();
 
+    
     fixture = TestBed.createComponent(AbsenceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

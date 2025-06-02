@@ -11,6 +11,7 @@ import { AbsenceModel } from '../../shared/models/absence.model';
 })
 
 
+
 export class AbsenceComponent {
 
   @Input({
