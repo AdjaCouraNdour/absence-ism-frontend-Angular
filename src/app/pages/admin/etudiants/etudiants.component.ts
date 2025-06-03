@@ -17,9 +17,9 @@ export class EtudiantsComponent implements OnInit {
   etudiants$: Observable<any> = new Observable();
 
    ngOnInit(): void {
-    this.etudiants$ = this.etudiantsService.getEtudiants()
+    this.etudiants$ = this.etudiantsService.getAllEtudiants()
       .pipe(
-        map(response => response.results)  // on extrait uniquement le tableau results
+        map(response => response.results)  
       );
 
     this.etudiants$.subscribe(data => console.log('Liste des étudiants:', data));

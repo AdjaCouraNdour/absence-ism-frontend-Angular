@@ -10,14 +10,11 @@ import { AbsenceModel } from '../../models/absence.model';
 })
 export class EtudiantService {
 
-  private apiUrl = 'http://localhost:8080/api/etudiants';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/etudiants';
 
-
-  
-  getEtudiants(page = 0, size = 5): Observable<any> {
+  getAllEtudiants(page = 0, size = 5): Observable<any> {
     return this.httpClient.get<any>(`${this.apiUrl}?page=${page}&size=${size}`);
   }
-
     getById(Id: number): Observable<EtudiantModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }

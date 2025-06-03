@@ -23,13 +23,12 @@ export class EtudiantComponent {
   constructor(private router : Router ) {
   }
 
-  onLoadViewAbsences(etudiantId : string){
+  onLoadEtudiantViewAbsences(etudiantId : string){
     this.router.navigateByUrl(`/pointages/${etudiantId}/absences`)
   }
   etudiant$:Observable<EtudiantModel[]> = new Observable();
 
   protected readonly Array = Array;
-
  
 }
 

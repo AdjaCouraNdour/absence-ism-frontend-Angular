@@ -1,4 +1,4 @@
-<div class="h-screen w-64 bg-orange-500 text-white flex flex-col justify-between">
+<div class="h-screen w-64  text-white flex flex-col justify-between" style="background-color: #F19120; color: white;">
   <div class="flex flex-col items-center p-4 border-b border-orange-600">
     <img src="assets/logo-ism.png" alt="ISM" class="w-20 h-20 mb-2" />
     <h1 class="font-bold text-xl">ISM</h1>
@@ -9,7 +9,7 @@
       <li>
         <a 
           routerLink="/admin" 
-          routerLinkActive="bg-orange-600 text-orange-900"
+          routerLinkActive="active-link"
           class="flex items-center gap-2 px-6 py-2 rounded-l-full font-semibold hover:bg-orange-600 transition">
           <span class="material-icons">home</span> Accueil
         </a>
@@ -18,7 +18,16 @@
       <li>
         <a 
           routerLink="/admin/absences" 
-          routerLinkActive="bg-orange-600 text-orange-900"
+          routerLinkActive="active-link"
+          class="flex items-center gap-2 px-6 py-2 rounded-l-full font-semibold hover:bg-orange-600 transition">
+          <span class="material-icons">event_busy</span> Sessions du jour
+        </a>
+      </li>
+
+      <li>
+        <a 
+          routerLink="/admin/absences" 
+          routerLinkActive="active-link"
           class="flex items-center gap-2 px-6 py-2 rounded-l-full font-semibold hover:bg-orange-600 transition">
           <span class="material-icons">event_busy</span> Absences
         </a>
@@ -27,7 +36,7 @@
       <li>
         <a 
           routerLink="/admin/etudiants" 
-          routerLinkActive="bg-orange-600 text-orange-900"
+          routerLinkActive="active-link"
           class="flex items-center gap-2 px-6 py-2 rounded-l-full font-semibold hover:bg-orange-600 transition">
           <span class="material-icons">groups</span> Étudiants
         </a>

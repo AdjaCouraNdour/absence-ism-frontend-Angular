@@ -3,7 +3,7 @@ import { EtudiantModel } from '../models/etudiant.model';
 import { Observable, of } from 'rxjs';
 
 export interface IEtudiantService {
-    getEtudiants(): Observable<EtudiantModel[]> ;
+    getAllEtudiants(): Observable<EtudiantModel[]> ;
     getById(Id: number): Observable<EtudiantModel> ;
     getListeAbsences(IdEtudiant: number): Observable<EtudiantModel> ;
 
