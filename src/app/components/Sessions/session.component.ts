@@ -23,9 +23,9 @@ export class SessionComponent {
   constructor(private router : Router ) {
   }
 
-  onLoadsessionViewAbsences(sessionId : string){
-    this.router.navigateByUrl(`/pointages/${sessionId}/absences`)
-  }
+  // onLoadsessionViewAbsences(sessionId : string){
+  //   this.router.navigateByUrl(`/pointages/${sessionId}/absences`)
+  // }
   session$:Observable<SessionModel[]> = new Observable();
 
   protected readonly Array = Array;

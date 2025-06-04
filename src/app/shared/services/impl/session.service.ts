@@ -9,7 +9,7 @@ import { SessionModel } from '../../models/session.model';
 })
 export class SessionService implements ISessionService{
 
-  private apiUrl = 'http://localhost:8080/api/sessions/';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/sessions/duJour?';
 
   
     getAllSessions(): Observable<any> {
