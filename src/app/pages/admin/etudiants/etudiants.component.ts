@@ -9,7 +9,7 @@ import { EtudiantModel } from '../../../shared/models/etudiant.model';
 @Component({
   selector: 'app-etudiants',
   standalone: true,
-  imports: [CommonModule, EtudiantComponent],
+  imports: [CommonModule],
   templateUrl: './etudiants.component.html',
   styleUrl: './etudiants.component.css'
 })
