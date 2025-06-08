@@ -1,7 +1,7 @@
 <div class="flex items-center justify-between bg-[#fdf6f0] p-4 border-b">
   <!-- Titre dynamique -->
   <div>
-    <h1 class="text-3xl font-bold">{{ pageTitle }}</h1>
+    <h1 class="text-3xl font-bold"></h1>
     <p class="text-sm text-gray-700">Bienvenue dans l’espace administrateur</p>
   </div>
 
@@ -18,13 +18,13 @@
     </div>
 
     <!-- Infos utilisateur -->
-    <div class="flex items-center gap-2">
+    <div *ngIf="user as u" class="flex items-center gap-2">
       <div class="bg-yellow-200 rounded-full p-2">
         <span class="material-icons">person</span>
       </div>
       <div>
-        <p class="font-semibold">Lucien da Souza</p>
-        <p class="text-xs text-gray-600">Administrateur</p>
+        <p class="font-semibold">{{ u.nom }} {{ u.prenom }}</p>
+        <p class="text-xs text-gray-600">{{ u.role }}</p>
       </div>
     </div>
   </div>

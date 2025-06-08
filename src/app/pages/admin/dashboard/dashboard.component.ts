@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthMockService } from '../../../shared/services/impl/auth-mock.service';
+import { AuthService } from '../../../shared/services/impl/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import { AuthMockService } from '../../../shared/services/impl/auth-mock.service
 })
 
 export class DashboardComponent {
-  constructor(private authService: AuthMockService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   logout(): void {
     this.authService.Logout();

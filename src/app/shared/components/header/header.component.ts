@@ -1,9 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/impl/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
+  standalone: true 
 })
 export class HeaderComponent {
-  @Input() pageTitle: string = '';
+  authService = inject(AuthService);
+
+  get user(): User | null {
+    return this.authService.currentUserSignal();
+  }
 }
