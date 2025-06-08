@@ -1,12 +1,10 @@
-
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { SessionModel } from '../../../shared/models/session.model';
 import { SessionService } from '../../../shared/services/impl/session.service';
+import { SessionModel } from '../../../shared/models/session.model';
 import { SessionComponent } from '../../../components/Sessions/session.component';
-
 
 @Component({
   selector: 'app-sessions',
@@ -20,9 +18,8 @@ export class SessionsComponent implements OnInit {
   sessionsAll: SessionModel[] = [];
   sessionsPerPage: SessionModel[] = [];
 
-  
   currentPage = 0;
-  pageSize = 5; 
+  pageSize = 5
   pages: number[] = [];
 
   ngOnInit(): void {
