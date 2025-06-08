@@ -1,10 +1,28 @@
 <div class="bg-[#fef8f3] min-h-screen p-8">
-  <div class="max-w-4xl mx-auto border rounded-md border-[#843c0c] p-6">
-    <p class="text-lg text-black mb-6">Liste de tous les etudiants inscrits</p>
+  <div class="max-w-5xl mx-auto border rounded-md border-[#843c0c] p-6 shadow-md bg-white">
+    <h2 class="text-2xl font-semibold text-[#843c0c] mb-4">Liste des étudiants inscrits</h2>
 
-    <ng-container *ngFor="let etudiant of etudiantsPerPage">
-      <app-etudiant [etudiant]="etudiant" class="w-full"></app-etudiant>
-    </ng-container>
+    <!-- TABLEAU -->
+    <div class="overflow-x-auto rounded-lg ">
+      <table class="min-w-full text-center ">
+        <thead class="bg-orange-100">
+          <tr>
+            <th class="px-4 py-2 text-orange-500 font-semibold ">Nom</th>
+            <th class="px-4 py-2 text-orange-500 font-semibold ">Prénom</th>
+            <th class="px-4 py-2 text-orange-500 font-semibold ">Matricule</th>
+            <th class="px-4 py-2 text-orange-500 font-semibold ">Classe</th>
+          </tr>
+        </thead>
+       <tbody>
+          <tr *ngFor="let etudiant of etudiantsPerPage" class="bg-white shadow-sm my-2 hover:bg-gray-50 rounded-md">
+            <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.nom }}</td>
+            <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.prenom }}</td>
+            <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.matricule }}</td>
+            <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.classe }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- PAGINATION -->
     <div class="flex justify-center items-center gap-2 mt-6">

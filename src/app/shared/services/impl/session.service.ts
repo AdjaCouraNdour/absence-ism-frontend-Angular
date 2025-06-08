@@ -9,9 +9,22 @@ import { SessionModel } from '../../models/session.model';
 })
 export class SessionService implements ISessionService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/sessions/duJour?';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/sessions';
 
   
+    getSessionsDuJour(): Observable<any>  {
+        const date = this.getDateDuJour();
+        return this.httpClient.get<any[]>(`${this.apiUrl}/duJour?date=${encodeURIComponent(date)}`);
+      }
+    
+      getDateDuJour(): string {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const year = today.getFullYear();
+      return `${day}/${month}/${year}`; 
+    }
+    
     getAllSessions(): Observable<any> {
       return this.httpClient.get<any>(this.apiUrl);
     }
@@ -21,6 +34,8 @@ export class SessionService implements ISessionService{
     getListeAbsences(IdSession: number): Observable<SessionModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${IdSession}`);
     }
+    
+    
 
   constructor(private httpClient: HttpClient) { }
  
