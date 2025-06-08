@@ -1,13 +1,15 @@
 <div class="min-h-screen bg-[#fef1e7] p-10">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
     <div *ngIf="session" class="bg-white shadow-md rounded-xl p-5 hover:shadow-xl transition-shadow">
-    <p><span class="font-semibold text-orange-600">Nom</span> : {{session.nom}}</p>
-    <p><span class="font-semibold text-orange-600">Prénom</span> : {{session.prenom}}</p>
-    <p><span class="font-semibold text-orange-600">Matricule</span> : {{session.matricule}}</p>
-    <p><span class="font-semibold text-orange-600">Téléphone</span> : {{session.telephone}}</p>
+    <p><span class="font-semibold text-orange-600">Date</span> : {{session.date}}</p>
+    <p><span class="font-semibold text-orange-600">Heure de Debut</span> : {{session.heureDebut}}</p>
+    <p><span class="font-semibold text-orange-600">Heure de Fin</span> : {{session.heureFin}}</p>
+    <p><span class="font-semibold text-orange-600">Mode</span> : {{session.mode}}</p>
+    <p><span class="font-semibold text-orange-600">Salle </span> : {{session.salle}}</p>
 
     <div class="mt-4 flex justify-end">
-      <button (click)="onLoadViewAbsences(session.id)"
+      <!-- <button (click)="onLoadViewAbsences(session.id)" -->
+      <button 
         class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full shadow-md transition-transform duration-300 hover:scale-105">
         Voir Absences
       </button>

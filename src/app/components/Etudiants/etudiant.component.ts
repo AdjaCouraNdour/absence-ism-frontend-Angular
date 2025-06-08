@@ -11,10 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './etudiant.component.css'
 })
 
-
-
 export class EtudiantComponent {
-
   @Input({
     alias : "etudiant", 
     required: true
@@ -26,9 +23,8 @@ export class EtudiantComponent {
   // onLoadEtudiantViewAbsences(etudiantId : string){
   //   this.router.navigateByUrl(`/pointages/${etudiantId}/absences`)
   // }
+  
   etudiant$:Observable<EtudiantModel[]> = new Observable();
-
   protected readonly Array = Array;
- 
 }
 
