@@ -9,14 +9,14 @@ import { JustificationModel } from '../../models/Justification.model';
 })
 export class JustificationService implements IJustificationService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/Justifications';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/justifications';
 
   
     getAllJustifications(): Observable<any> {
       return this.httpClient.get<any>(this.apiUrl);
     }
    
-    getById(absenceId: number): Observable<PointageModel> {
+    getById(absenceId: number): Observable<JustificationModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);
     }
     getByAbsenceId(absenceId: number): Observable<JustificationModel> {
