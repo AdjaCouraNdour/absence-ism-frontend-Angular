@@ -7,6 +7,7 @@ import { SecurityComponent } from './pages/security/security.component';
 import { LoginComponent } from './pages/security/login/login.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
+import { SessionDetailsComponent } from './pages/admin/sessions/sessionsDetails/sessionDetails.component';
 
 export const routes: Routes = [
     {
@@ -27,8 +28,8 @@ export const routes: Routes = [
                 component: AbsencesComponent
             },
             {
-                path: 'sessions/absences/:sessionId',
-                component: SessionsComponent
+                path: 'session/absences/:sessionId',
+                component: SessionDetailsComponent
             },
             {
                 path: 'justification/:id',

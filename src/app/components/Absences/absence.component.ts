@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { Router} from '@angular/router';
 import { Observable } from 'rxjs';
-import { AbsenceModel } from '../../shared/models/pointage.model';
+import { PointageModel } from '../../shared/models/pointage.model';
 
 @Component({
   selector: 'app-absence',
@@ -15,14 +15,14 @@ export class AbsenceComponent {
   @Input({
     alias : "absence", 
     required: true
-  }) absence!: AbsenceModel;
+  }) absence!: PointageModel;
 
   constructor(private router : Router ) {
   }
   // onLoadViewJustifications(name : string){
   //   this.router.navigateByUrl(`/Justification/${name}`)
   // }
-  absence$:Observable<AbsenceModel[]> = new Observable();
+  absence$:Observable<PointageModel[]> = new Observable();
 
   protected readonly Array = Array;
 

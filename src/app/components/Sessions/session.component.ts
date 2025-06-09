@@ -24,12 +24,13 @@ export class SessionComponent {
   }
 
   session$:Observable<SessionModel[]> = new Observable();
-  async onLoadViewAbsences(sessionId : number) {
+  
+  async onLoadListeAbsences(sessionId : number) {
       this.router.navigateByUrl(".", {
         skipLocationChange: true,
 
       }).then(() => {
-        this.router.navigate([`/pointages/${sessionId}/absences`])
+        this.router.navigate([`session/absences/${sessionId}`])
       });
 
     }

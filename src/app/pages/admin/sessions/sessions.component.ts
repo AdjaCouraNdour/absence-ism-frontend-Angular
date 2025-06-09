@@ -32,6 +32,7 @@ export class SessionsComponent implements OnInit {
       });
   }
 
+
   setupPagination() {
     const totalPages = Math.ceil(this.sessionsAll.length / this.pageSize);
     this.pages = Array(totalPages).fill(0).map((_, i) => i);
