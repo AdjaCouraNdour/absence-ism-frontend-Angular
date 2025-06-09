@@ -1,4 +1,4 @@
-export interface AbsenceModel {
+export interface PointageModel {
  
   nonEtudiant: string;
   prenomEtudiant: string;

@@ -1,11 +1,10 @@
-import { AbsenceModel } from '../models/absence.model';
+import { PointageModel } from '../models/pointage.model';
 import { Observable } from 'rxjs';
 
 export interface IPointageService {
-
-     
-     getAllPointages(): Observable<AbsenceModel[]> ;
-     getAllPointagesByEtudiantId(IdEtudiant: String): Observable<AbsenceModel> ;
-     getById(Id: number): Observable<AbsenceModel> ;
+       
+     getAllPointages(): Observable<PointageModel[]> ;
+     getAllPointagesByEtudiantId(IdEtudiant: String): Observable<PointageModel> ;
+     getById(Id: number): Observable<PointageModel> ;
  
 }

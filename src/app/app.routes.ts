@@ -17,13 +17,18 @@ export const routes: Routes = [
             {
                 path: 'etudiants',
                 component: EtudiantsComponent
-            }, {
+            }, 
+            {
                 path: 'sessions',
                 component: SessionsComponent
             },
             {
                 path: 'absences',
                 component: AbsencesComponent
+            },
+            {
+                path: 'sessions/absences/:sessionId',
+                component: SessionsComponent
             },
             {
                 path: 'justification/:id',

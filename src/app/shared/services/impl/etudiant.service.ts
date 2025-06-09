@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { EtudiantModel } from '../../models/etudiant.model';
-import { AbsenceModel } from '../../models/absence.model';
+import { PointageModel } from '../../models/pointage.model';
 
 // Singleton + Injection de dépendance
 @Injectable({
@@ -21,7 +21,7 @@ export class EtudiantService {
     getListeAbsences(IdEtudiant: number): Observable<EtudiantModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}`);
     }
-    getListeAbsencesByEtudiantId(IdEtudiant: number): Observable<AbsenceModel> {
+    getListeAbsencesByEtudiantId(IdEtudiant: number): Observable<PointageModel> {
           return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}/absences`);
         }
     

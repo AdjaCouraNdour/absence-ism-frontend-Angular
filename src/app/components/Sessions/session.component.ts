@@ -23,11 +23,16 @@ export class SessionComponent {
   constructor(private router : Router ) {
   }
 
-  // onLoadsessionViewAbsences(sessionId : string){
-  //   this.router.navigateByUrl(`/pointages/${sessionId}/absences`)
-  // }
   session$:Observable<SessionModel[]> = new Observable();
+  async onLoadViewAbsences(sessionId : number) {
+      this.router.navigateByUrl(".", {
+        skipLocationChange: true,
 
+      }).then(() => {
+        this.router.navigate([`/pointages/${sessionId}/absences`])
+      });
+
+    }
   protected readonly Array = Array;
  
 }

@@ -1,25 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import { AbsenceModel } from '../../models/absence.model';
 import { IPointageService } from '../IPointageService';
-
-// Singleton + Injection de dépendance
+import { PointageModel } from '../../models/pointage.model';
 @Injectable({
   providedIn: 'root' 
 })
 export class PointageService implements IPointageService{
 
-  private apiUrl = 'http://localhost:8080/api/pointages/';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/pointages';
 
   
-    getAllPointages(): Observable<AbsenceModel[]> {
+    getAllPointages(): Observable<any> {
       return this.httpClient.get<any>(this.apiUrl);
     }
-    getAllPointagesByEtudiantId(IdEtudiant: String): Observable<AbsenceModel> {
-    throw new Error('Method not implemented.');
+    getAllAbsences(): Observable<any> {
+      return this.httpClient.get<any>(`${this.apiUrl}/absences`);
+    }
+    getAllPointagesByEtudiantId(IdEtudiant: String): Observable<PointageModel> {
+      return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}`);
     } 
-    getById(Id: number): Observable<AbsenceModel> {
+    getById(Id: number): Observable<PointageModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }
 
