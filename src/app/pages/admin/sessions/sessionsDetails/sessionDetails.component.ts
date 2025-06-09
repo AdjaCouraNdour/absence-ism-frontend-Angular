@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { SessionService } from '../../../../shared/services/impl/session.service';
 import { PointageModel } from '../../../../shared/models/pointage.model';
 import { PointageService } from '../../../../shared/services/impl/pointage.service';
-import { SessionComponent } from "../../../../components/Sessions/session.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +11,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-session-details',
   templateUrl: './sessionDetails.component.html',
-  imports: [SessionComponent,FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule],
 })
 export class SessionDetailsComponent implements OnInit {
 

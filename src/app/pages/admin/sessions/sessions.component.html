@@ -1,7 +1,7 @@
 <div class="container mx-auto p-10">
-  <h1 class="text-3xl font-bold text-[#5c2b0b] mb-2">Sessions du Jour</h1>
+  <h1 class="text-2xl font-bold text-[#5c2b0b] mb-2">Sessions du Jour</h1>
   
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <div class="flex gap-6">
     <div *ngFor="let session of sessionsPerPage" class="flex">
       <app-session [session]="session" class = "w-full"></app-session>
     </div>
