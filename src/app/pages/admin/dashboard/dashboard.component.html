@@ -17,44 +17,45 @@
     </div>
   </div>
 
-    <!-- absences -->
   
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-        <div class="bg-white rounded-2xl shadow-md border border-[#ddd] p-6 flex flex-col justify-between h-full">
+          <!-- Absences -->
+            <div class="bg-white rounded-2xl shadow-md border border-[#ddd] p-6 flex flex-col h-full">
             <h3 class="text-xl font-bold text-[#5c3b28] mb-4">⏳ Absences</h3>
-            <div class="space-y-4 text-sm">
-                <div  *ngFor="let a of absencesAll" class="bg-orange-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
-                    <div>
-                        <p>
-                       <strong>{{ a.nonEtudiant }}</strong> {{ a.prenomEtudiant }} <br> 
-                        <strong>classeEtudiant a recup</strong>
-                        </p>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                           <p class="text-red-600 font-semibold mr-3">{{ a.type }}</p>
-                           <p class="text-gray-500">{{ a.justifiee ? 'Justifiée' : 'Non justifiée' }}</p>
-                    </div>
+
+            <div class="space-y-4 text-sm overflow-y-auto max-h-[300px] pr-2">
+                <div *ngFor="let a of absencesAll" class="bg-orange-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
+                <div>
+                    <p>
+                    <strong>{{ a.nonEtudiant }}</strong> {{ a.prenomEtudiant }} <br>
+                    <strong>{{ a.classeEtudiant }}</strong>
+                    </p>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <p class="text-red-600 font-semibold mr-3">{{ a.type }}</p>
+                    <p class="text-gray-500">{{ a.justifiee ? 'Justifiée' : 'Non justifiée' }}</p>
+                </div>
                 </div>
             </div>
-        </div>
+            </div>
 
-        <div class="bg-white rounded-2xl shadow-md border border-[#ddd] p-6 flex flex-col justify-between h-full">
+            <!-- Justifications -->
+            <div class="bg-white rounded-2xl shadow-md border border-[#ddd] p-6 flex flex-col h-full">
             <h3 class="text-xl font-bold text-[#5c3b28] mb-4">📄 Justifications en attente</h3>
 
-            <div class="space-y-4 text-sm">
+            <div class="space-y-4 text-sm overflow-y-auto max-h-[300px] pr-2">
                 <div *ngFor="let j of justificationsAll" class="bg-green-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
-                    <div>
-                        <strong>prenomEtudiant a recup</strong> - matriculeEtudiant a recup <br> 
-                        Classe: <strong>classeEtudiant a recup</strong>
-                        <br><span>Absent(e) pour <strong class="text-pink-600">{{ j.commentaire }}</strong></span>
-                    </div>
-                    <div class="space-x-2">
-                        <button class="bg-[#5c3b28] text-white px-3 py-1 rounded hover:bg-[#40291c] transition">Détails</button>
-                        <!-- <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition">Valider</button>
-                        <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Invalider</button> -->
-                    </div>
+                <div>
+                    <strong>prenom</strong> - mat <br>
+                    Classe: <strong>class</strong><br>
+                    <span>Absent(e) pour <strong class="text-pink-600">{{ j.commentaire }}</strong></span>
+                </div>
+                <div class="space-x-2">
+                    <button class="bg-[#5c3b28] text-white px-3 py-1 rounded hover:bg-[#40291c] transition">Détails</button>
+                </div>
                 </div>
             </div>
-        </div>
+            </div>
+
     </div>
 </div>

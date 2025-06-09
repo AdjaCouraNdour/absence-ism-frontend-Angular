@@ -80,8 +80,7 @@ export class SessionDetailsComponent implements OnInit {
 
   pointages: PointageModel[] = [];
 
-  // Valeurs possibles : 'TOUS' | 'ABSENCE' | 'RETARD' | 'PRESENT'
-  filtre: string = 'TOUS';
+  filtre: 'TOUS' | 'ABSENCE' | 'RETARD' | 'PRESENT' = 'TOUS';
 
   ngOnInit(): void {
     const sessionId = Number(this.route.snapshot.paramMap.get('id'));
