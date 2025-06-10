@@ -30,7 +30,7 @@ export class SessionComponent {
         skipLocationChange: true,
 
       }).then(() => {
-        this.router.navigate([`session/absences/${sessionId}`])
+        this.router.navigate([`session/pointages/${sessionId}`])
       });
 
     }

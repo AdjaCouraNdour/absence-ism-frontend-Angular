@@ -33,7 +33,8 @@ export class SessionDetailsComponent implements OnInit {
   }
 
   getFilteredPointages(): PointageModel[] {
-    if (this.filtre === 'TOUS') return this.pointages;
+    if (this.filtre === 'TOUS') 
+      return this.pointages;
     return this.pointages.filter(p => p.type === this.filtre);
   }
 }

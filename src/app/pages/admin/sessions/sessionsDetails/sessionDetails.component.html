@@ -19,7 +19,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of getFilteredPointages()"
+    <tr class="text-center" >
+      <td class="px-4 py-2">non</td>
+      <td class="px-4 py-2">prenom</td>
+      <td class="px-4 py-2">classe</td>
+      <td class="px-4 py-2">type</td>
+      <td class="px-4 py-2">oui/non</td>
+    </tr>
+
+      <!-- <tr *ngFor="let p of getFilteredPointages()"
         class="text-center"
         [ngClass]="p.justifiee ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
       <td class="px-4 py-2">{{ p.nonEtudiant }}</td>
@@ -27,6 +35,6 @@
       <td class="px-4 py-2">{{ p.classeEtudiant }}</td>
       <td class="px-4 py-2">{{ p.type }}</td>
       <td class="px-4 py-2">{{ p.justifiee ? 'Oui' : 'Non' }}</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
