@@ -12,17 +12,17 @@ export class EtudiantService {
 
   private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/etudiants';
 
-  getAllEtudiants(page = 0, size = 5): Observable<any> {
-    return this.httpClient.get<any>(`${this.apiUrl}?page=${page}&size=${size}`);
-  }
-    getById(Id: number): Observable<EtudiantModel> {
+    getAllEtudiants(page = 0, size = 5): Observable<any> {
+      return this.httpClient.get<any>(`${this.apiUrl}?page=${page}&size=${size}`);
+    }
+    getById(Id: string): Observable<EtudiantModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }
-    getListeAbsences(IdEtudiant: number): Observable<EtudiantModel> {
-      return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}`);
+    getListeAbsences(etudiantId:string ): Observable<EtudiantModel> {
+      return this.httpClient.get<any>(`${this.apiUrl}/${etudiantId}`);
     }
-    getListeAbsencesByEtudiantId(IdEtudiant: number): Observable<PointageModel> {
-          return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}/absences`);
+    getListeAbsencesByEtudiantId(etudiantId: string): Observable<PointageModel> {
+          return this.httpClient.get<any>(`${this.apiUrl}/${etudiantId}/absences`);
         }
     
   constructor(private httpClient: HttpClient) { }

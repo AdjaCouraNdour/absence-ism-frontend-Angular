@@ -26,7 +26,7 @@
     <tr *ngFor="let pointages of pointagesFiltresParPage"
         class="text-center"
         [ngClass]="pointages.justifiee ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'">
-      <td class="px-4 py-2">{{ pointages.nonEtudiant }}</td>
+      <td class="px-4 py-2">{{ pointages.nomEtudiant }}</td>
       <td class="px-4 py-2">{{ pointages.prenomEtudiant }}</td>
       <td class="px-4 py-2">{{ pointages.classeEtudiant }}</td>
       <td class="px-4 py-2">{{ pointages.type }}</td>

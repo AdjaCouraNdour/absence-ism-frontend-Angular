@@ -15,7 +15,7 @@ export class PointageService implements IPointageService{
       return this.httpClient.get<any>(this.apiUrl);
     } 
     getAllPointagesDuneSessionDuJour(sessionId: string): Observable<any> {
-      return this.httpClient.get<any>(`${this.apiUrl}/session/${sessionId}`);
+      return this.httpClient.get<any>(`https://gestion-absence-ism-dev.onrender.com/api/web/sessions/${sessionId}/Absences`);
     }
     getAllAbsences(): Observable<any> {
       return this.httpClient.get<any>(`${this.apiUrl}/absences`);

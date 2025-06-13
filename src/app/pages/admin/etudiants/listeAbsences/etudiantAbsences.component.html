@@ -1,33 +1,44 @@
 <div class="bg-[#fef8f3] min-h-screen p-8">
+
+  <div class="flex items-center justify-between bg-[#fff5eb] border border-[#d6a36e] rounded-md px-6 py-4 mb-6 shadow-sm">
+  <div class="space-y-1">
+    <h3 class="text-lg font-semibold text-[#5c2b0b]">Informations de l'étudiant</h3>
+    <p class="text-sm text-gray-700"><strong>Nom :</strong> {{ etudiant?.prenom }}</p>
+    <p class="text-sm text-gray-700"><strong>Prénom :</strong> {{ etudiant?.nom }}</p>
+    <p class="text-sm text-gray-700"><strong>Matricule :</strong> {{ etudiant?.matricule }}</p>
+    <p class="text-sm text-gray-700"><strong>Classe :</strong> {{ etudiant?.classeLibelle }}</p>
+  </div>
+
+  <div>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar Étudiant" class="w-20 h-20 rounded-full border-2 border-[#843c0c] shadow">
+  </div>
+</div>
+
   <div class="max-w-5xl mx-auto border rounded-md border-[#843c0c] p-6 shadow-md bg-white">
-    <h2 class="text-2xl  text-[#5c2b0b] font-bold mb-4">Liste des étudiants inscrits</h2>
+
+    <h2 class="text-2xl  text-[#5c2b0b] font-bold mb-4">Liste absences </h2>
 
     <div class="grid grid-cols-4  gap-4 items-start">
       <div class="col-span-3 overflow-x-auto rounded-lg bg-orange-50">
         <table class="min-w-full text-center">
           <thead class="bg-[#5c2b0b] text-white">
             <tr>
-              <th class="px-4 py-2 font-semibold">Nom</th>
-              <th class="px-4 py-2 font-semibold">Prénom</th>
-              <th class="px-4 py-2 font-semibold">Matricule</th>
-              <th class="px-4 py-2 font-semibold">Telephone</th>
-              <th class="px-4 py-2 font-semibold">Classe</th>
+              <th class="px-4 py-2 font-semibold">Type</th>
+              <th class="px-4 py-2 font-semibold">Justifié</th>
+              <th class="px-4 py-2 font-semibold">Details</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let etudiant of etudiantsPerPage" class="shadow-sm my-2 hover:bg-gray-50 rounded-md">
-              <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.nom }}</td>
-              <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.prenom }}</td>
-              <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.matricule }}</td>
-              <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.telephone }}</td>
-              <td class="px-4 py-2 text-sm text-gray-800">{{ etudiant.classeLibelle }}</td>
-              <td class="px-4 py-2 text-sm text-gray-800">
+            <tr *ngFor="let absence of absencesPerPage" class="shadow-sm my-2 hover:bg-gray-50 rounded-md">
+              <td class="px-4 py-2 text-sm text-gray-800">{{ absence.type }}</td>
+              <td class="px-4 py-2 text-sm text-gray-800">{{ absence.justifiee }}</td>
+              <td class="px-4 py-2">
                 <button 
                   class="bg-[#5c2b0b] text-white px-3 py-1 rounded hover:bg-[#7a3a0d] transition"
-                  (click)="voirDetails(etudiant.id)">
+                  (click)="voirDetails(absence.id)">
                     Voir
                 </button>
-              </td>
+              </td>            
             </tr>
           </tbody>
         </table>
@@ -69,7 +80,7 @@
     </div>
 
     <div class="text-sm text-gray-600 text-center mt-2">
-      Page {{ currentPage + 1 }} sur {{ pages.length }} ({{ etudiantsAll.length }} étudiants au total)
+      Page {{ currentPage + 1 }} sur {{ pages.length }} ({{ absencesAll.length }} étudiants au total)
     </div>
   </div>
 </div>

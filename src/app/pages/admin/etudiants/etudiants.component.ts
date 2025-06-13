@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { EtudiantService } from '../../../shared/services/impl/etudiant.service';
 import { EtudiantModel } from '../../../shared/models/etudiant.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-etudiants',
@@ -13,7 +14,9 @@ import { EtudiantModel } from '../../../shared/models/etudiant.model';
 })
 export class EtudiantsComponent implements OnInit {
   private etudiantsService: EtudiantService = inject(EtudiantService);
- 
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   etudiantsAll: EtudiantModel[] = [];
   etudiantsPerPage: EtudiantModel[] = [];
 
@@ -30,6 +33,12 @@ export class EtudiantsComponent implements OnInit {
         this.goToPage(0);
       });
   }
+
+   voirDetails(etudiantId: string) {
+    this.router.navigate(['/admin/etudiant', etudiantId]);
+  }
+
+
 
   setupPagination() {
     const totalPages = Math.ceil(this.etudiantsAll.length / this.pageSize);

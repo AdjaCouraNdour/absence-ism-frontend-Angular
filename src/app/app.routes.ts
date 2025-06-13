@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/security/login/login.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionDetailsComponent } from './pages/admin/sessions/sessionsDetails/sessionDetails.component';
+import { EtudiantAbsencesComponent } from './pages/admin/etudiants/listeAbsences/etudiantAbsences.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,10 @@ export const routes: Routes = [
                 path: 'etudiants',
                 component: EtudiantsComponent
             }, 
+            {
+                path: 'etudiant/:etudiantId',
+                component: EtudiantAbsencesComponent
+            },
             {
                 path: 'sessions',
                 component: SessionsComponent

@@ -2,6 +2,7 @@ export interface PointageModel {
 
   id: string;
   nonEtudiant: string;
+  nomEtudiant: string;
   prenomEtudiant: string;
   classeEtudiant: string;
   sessionId: string;
