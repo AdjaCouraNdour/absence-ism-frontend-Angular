@@ -45,7 +45,7 @@ export class AuthService implements IAuthService {
     return this.currentUserSignal()?.role === role;
   }
 
-  getAdminId(): number | null {
+  getAdminId(): string | null {
     return this.currentUserSignal()?.id ?? null;
   }
 }

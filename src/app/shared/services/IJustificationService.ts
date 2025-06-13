@@ -5,7 +5,7 @@ import { JustificationModel } from '../models/Justification.model';
 export interface IJustificationService {
    
     getAllJustifications(): Observable<JustificationModel> ;
-    getByAbsenceId(absenceId: number): Observable<JustificationModel> ;
+    getByAbsenceId(absenceId: string): Observable<JustificationModel> ;
   
 
     

@@ -12,14 +12,24 @@ export class JustificationComponent implements OnInit {
 
   private justificationsService: JustificationService = inject(JustificationService);
   justificationsAll: JustificationModel[] = [];
-    
+  
+  justificationDetails: JustificationModel | null = null;
+  absenceId!: string;
+
+  constructor(private route: ActivatedRoute) {}
   
   ngOnInit(): void {
+
       this.justificationsService.getAllJustifications()
         .pipe(map(res => res.results))
         .subscribe((data: JustificationModel[]) => {
           this.justificationsAll = data;
         
         });
+
+      this.absenceId = this.route.snapshot.paramMap.get('absenceId')!;
+      this.justificationsService.getByAbsenceId(this.absenceId).subscribe(data => {
+      this.justificationDetails = data;
+    });
     }
 }

@@ -16,10 +16,10 @@ export class JustificationService implements IJustificationService{
       return this.httpClient.get<any>(this.apiUrl);
     }
    
-    getById(absenceId: number): Observable<JustificationModel> {
+    getById(absenceId: string): Observable<JustificationModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);
     }
-    getByAbsenceId(absenceId: number): Observable<JustificationModel> {
+    getByAbsenceId(absenceId: string): Observable<JustificationModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);
   }
   constructor(private httpClient: HttpClient) { }

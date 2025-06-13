@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { SessionService } from '../../../../shared/services/impl/session.service';
+import { Router } from '@angular/router';
 import { PointageModel } from '../../../../shared/models/pointage.model';
 import { PointageService } from '../../../../shared/services/impl/pointage.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { JustificationModel } from '../../../../shared/models/Justification.model';
 
 
 @Component({
@@ -17,24 +17,51 @@ export class SessionDetailsComponent implements OnInit {
 
   private pointageService = inject(PointageService);
   private route = inject(ActivatedRoute);
-
-  pointages: PointageModel[] = [];
+  private router = inject(Router);
+  pointagesAll: PointageModel[] = [];
 
   filtre: 'TOUS' | 'ABSENCE' | 'RETARD' | 'PRESENT' = 'TOUS';
 
-  ngOnInit(): void {
-    const sessionId = Number(this.route.snapshot.paramMap.get('id'));
+  pointagesFiltresParPage: PointageModel[] = [];
+  currentPage = 0;
+  pageSize = 5;
+  pages: number[] = [];
 
+  ngOnInit(): void {
+    const sessionId = String(this.route.snapshot.paramMap.get('sessionId'));
     this.pointageService.getAllPointagesDuneSessionDuJour(sessionId)
       .subscribe((response: any) => {
-        this.pointages = response.results;
-        console.log("Pointages récupérés :", this.pointages);
+        this.pointagesAll = response.results;
+        console.log("Pointages récupérés :", this.pointagesAll);
+        this.setupPagination();
+        this.goToPage(0);
       });
   }
 
+
+
+voirDetails(pointage: PointageModel) {
+  this.router.navigate(['/justification', pointage.id]); // pointage.id = absenceId
+}
+
+
   getFilteredPointages(): PointageModel[] {
     if (this.filtre === 'TOUS') 
-      return this.pointages;
-    return this.pointages.filter(p => p.type === this.filtre);
+      return this.pointagesAll;
+    return this.pointagesAll.filter(p => p.type === this.filtre);
   }
+
+  setupPagination() {
+    const totalPages = Math.ceil(this.getFilteredPointages().length / this.pageSize);
+    this.pages = Array.from({ length: totalPages }, (_, i) => i);
+  }
+
+  goToPage(page: number) {
+    if (page < 0 || page >= this.pages.length) return;
+    this.currentPage = page;
+    const start = page * this.pageSize;
+    const end = start + this.pageSize;
+    this.pointagesFiltresParPage = this.getFilteredPointages().slice(start, end);
+  }
+
 }

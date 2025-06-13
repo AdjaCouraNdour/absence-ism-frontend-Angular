@@ -25,15 +25,10 @@ export class SessionComponent {
 
   session$:Observable<SessionModel[]> = new Observable();
   
-  async onLoadListeAbsences(sessionId : number) {
-      this.router.navigateByUrl(".", {
-        skipLocationChange: true,
+  onLoadListeAbsences(sessionId: string) {
+    this.router.navigate([`/admin/absences/session/${sessionId}`]);
+  }
 
-      }).then(() => {
-        this.router.navigate([`session/pointages/${sessionId}`])
-      });
-
-    }
   protected readonly Array = Array;
  
 }

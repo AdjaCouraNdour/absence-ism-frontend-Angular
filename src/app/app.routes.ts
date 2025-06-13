@@ -28,7 +28,7 @@ export const routes: Routes = [
                 component: AbsencesComponent
             },
             {
-                path: 'session/pointages/:sessionId',
+                path: 'absences/session/:sessionId',
                 component: SessionDetailsComponent
             },
             {
@@ -39,6 +39,7 @@ export const routes: Routes = [
                 path: '',
                 component: DashboardComponent
             },
+            
         ]
     },
     {

@@ -5,8 +5,5 @@ export interface EtudiantModel {
   prenom: string;
   matricule: string;
   classe: string;
-  telephone:string;
-
-    
-     
+  telephone:string; 
 }

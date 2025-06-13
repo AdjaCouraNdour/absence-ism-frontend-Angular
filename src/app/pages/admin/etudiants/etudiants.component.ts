@@ -13,6 +13,7 @@ import { EtudiantModel } from '../../../shared/models/etudiant.model';
 })
 export class EtudiantsComponent implements OnInit {
   private etudiantsService: EtudiantService = inject(EtudiantService);
+ 
   etudiantsAll: EtudiantModel[] = [];
   etudiantsPerPage: EtudiantModel[] = [];
 
