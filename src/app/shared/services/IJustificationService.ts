@@ -6,7 +6,7 @@ export interface IJustificationService {
    
     getAllJustifications(): Observable<JustificationModel> ;
     getByAbsenceId(absenceId: string): Observable<JustificationModel> ;
-  
+    traiterJustification(absenceId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any>;
 
     
 }

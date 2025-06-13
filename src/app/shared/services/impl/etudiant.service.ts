@@ -10,7 +10,7 @@ import { PointageModel } from '../../models/pointage.model';
 })
 export class EtudiantService {
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/etudiants';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/etudiants';
 
   getAllEtudiants(page = 0, size = 5): Observable<any> {
     return this.httpClient.get<any>(`${this.apiUrl}?page=${page}&size=${size}`);

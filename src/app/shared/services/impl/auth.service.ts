@@ -6,7 +6,7 @@ import { IAuthService } from '../IAuthService';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService implements IAuthService {
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/utilisateurs'; 
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/utilisateurs'; 
     currentUserSignal = signal<User | null>(null);
 
   constructor(private http: HttpClient) {}

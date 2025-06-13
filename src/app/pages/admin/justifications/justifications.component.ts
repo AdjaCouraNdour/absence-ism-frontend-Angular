@@ -27,6 +27,27 @@ export class JustificationComponent implements OnInit {
     });
   }
 
+  validerJustification() {
+    this.justificationsService.traiterJustification(this.absenceId, 'VALIDEE').subscribe({
+      next: () => {
+        this.justificationDetails!.statut = 'VALIDEE';
+        alert('Justification validée');
+      },
+      error: () => alert('Erreur lors de la validation')
+    });
+  }
+
+  refuserJustification() {
+    this.justificationsService.traiterJustification(this.absenceId, 'REFUSEE').subscribe({
+      next: () => {
+        this.justificationDetails!.statut = 'REFUSEE';
+        alert('Justification refusée');
+      },
+      error: () => alert('Erreur lors du refus')
+    });
+  }
+
+
   goBack() {
     history.back();
   }

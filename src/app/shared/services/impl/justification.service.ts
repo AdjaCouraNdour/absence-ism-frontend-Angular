@@ -9,7 +9,7 @@ import { JustificationModel } from '../../models/Justification.model';
 })
 export class JustificationService implements IJustificationService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/justifications';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/justifications';
 
   
     getAllJustifications(): Observable<any> {
@@ -21,8 +21,14 @@ export class JustificationService implements IJustificationService{
     }
     getByAbsenceId(absenceId: string): Observable<JustificationModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);
-  }
+    }
+
+    traiterJustification(absenceId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {
+      return this.httpClient.post(`https://gestion-absence-ism-dev.onrender.com/api/web/admin/${absenceId}/valider`, {
+        statut
+      });
+    }
+
   constructor(private httpClient: HttpClient) { }
-  
- 
+
 }
