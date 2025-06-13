@@ -18,7 +18,7 @@ export class EtudiantsComponent implements OnInit {
   etudiantsPerPage: EtudiantModel[] = [];
 
   currentPage = 0;
-  pageSize = 5
+  pageSize = 4;
   pages: number[] = [];
 
   ngOnInit(): void {

@@ -36,8 +36,6 @@ export class SessionDetailsComponent implements OnInit {
         this.setupPagination();
         this.goToPage(0);
       });
-
-
   }
 
   voirDetails(absenceId: string) {
