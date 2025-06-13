@@ -15,7 +15,7 @@ export class EtudiantService {
     getAllEtudiants(page = 0, size = 5): Observable<any> {
       return this.httpClient.get<any>(`${this.apiUrl}?page=${page}&size=${size}`);
     }
-    getById(Id: string): Observable<EtudiantModel> {
+    getById(Id: string): Observable<any> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }
     getListeAbsences(etudiantId:string ): Observable<EtudiantModel> {

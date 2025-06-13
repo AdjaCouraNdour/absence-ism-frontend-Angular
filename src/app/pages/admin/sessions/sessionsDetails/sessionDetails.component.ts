@@ -5,8 +5,6 @@ import { PointageModel } from '../../../../shared/models/pointage.model';
 import { PointageService } from '../../../../shared/services/impl/pointage.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { JustificationModel } from '../../../../shared/models/Justification.model';
-
 
 @Component({
   selector: 'app-session-details',

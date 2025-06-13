@@ -34,14 +34,16 @@ export class EtudiantAbsencesComponent implements OnInit {
     this.etudiantsService.getById(etudiantId)
      .subscribe({
       next: (data) => {
-        this.etudiant = data;
-        console.log('Justification chargée :', data);
-      },
-      error: (err) => {
-        console.error('Erreur lors du chargement de l\'etudiant :', err);
+        if (data?.results) {
+          this.etudiant = data.results;
+          console.log('Étudiant chargé :', this.etudiant);
+        } else {
+          console.warn('Aucun étudiant trouvé dans la réponse.');
+        }
       }
     });
 
+  
     this.etudiantsService.getListeAbsencesByEtudiantId(etudiantId)
       .subscribe((response: any) => {
         this.absencesAll = response.results;

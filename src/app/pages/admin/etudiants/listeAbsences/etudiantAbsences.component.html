@@ -1,16 +1,20 @@
 <div class="bg-[#fef8f3] min-h-screen p-8">
 
   <div class="flex items-center justify-between bg-[#fff5eb] border border-[#d6a36e] rounded-md px-6 py-4 mb-6 shadow-sm">
-  <div class="space-y-1">
-    <h3 class="text-lg font-semibold text-[#5c2b0b]">Informations de l'étudiant</h3>
-    <p class="text-sm text-gray-700"><strong>Nom :</strong> {{ etudiant?.prenom }}</p>
-    <p class="text-sm text-gray-700"><strong>Prénom :</strong> {{ etudiant?.nom }}</p>
-    <p class="text-sm text-gray-700"><strong>Matricule :</strong> {{ etudiant?.matricule }}</p>
-    <p class="text-sm text-gray-700"><strong>Classe :</strong> {{ etudiant?.classeLibelle }}</p>
+  <div class="flex-1">
+    <h4 class="text-xl font-bold text-black mb-2">
+    {{ etudiant?.nom }} {{ etudiant?.prenom }}
+    </h4>
+
+    <div class="flex space-x-6">
+      <p class="text-sm text-gray-700"><strong>Matricule :</strong> {{ etudiant?.matricule }} </p>
+      <p class="text-sm text-gray-700"><strong>Classe :</strong> {{ etudiant?.classeLibelle }} a faire</p>
+    </div>
   </div>
 
   <div>
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar Étudiant" class="w-20 h-20 rounded-full border-2 border-[#843c0c] shadow">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar Étudiant"
+         class="w-15 h-15 rounded-full border-2 border-[#843c0c] shadow">
   </div>
 </div>
 
@@ -44,7 +48,6 @@
         </table>
       </div>
 
-      <!-- IMAGE 1/4 -->
       <div class="col-span-1 flex justify-center items-start">
         <img src="https://thumbs.dreamstime.com/b/young-man-bag-young-man-bag-student-vector-illustration-graphic-design-140689106.jpg" alt="Étudiant" class="rounded-md shadow-lg w-40" />
       </div>
@@ -83,4 +86,4 @@
       Page {{ currentPage + 1 }} sur {{ pages.length }} ({{ absencesAll.length }} étudiants au total)
     </div>
   </div>
-</div>
+<!-- </div> -->

@@ -4,11 +4,12 @@ import { map } from 'rxjs/operators';
 import { EtudiantService } from '../../../shared/services/impl/etudiant.service';
 import { EtudiantModel } from '../../../shared/models/etudiant.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-etudiants',
   standalone: true,
-  imports: [CommonModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './etudiants.component.html',
   styleUrl: './etudiants.component.css'
 })
@@ -16,6 +17,8 @@ export class EtudiantsComponent implements OnInit {
   private etudiantsService: EtudiantService = inject(EtudiantService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
+ 
+  filtre: 'TOUS' | 'Classe 1' | 'Classe 2' | 'Classe 3' = 'TOUS' ;
 
   etudiantsAll: EtudiantModel[] = [];
   etudiantsPerPage: EtudiantModel[] = [];
@@ -38,7 +41,17 @@ export class EtudiantsComponent implements OnInit {
     this.router.navigate(['/admin/etudiant', etudiantId]);
   }
 
+  filtrerEtPaginer() {
+  this.currentPage = 0;
+  this.etudiantsPerPage = this.getFilteredEtudiants().slice(0, this.pageSize);
+  this.setupPagination();
+}
 
+  getFilteredEtudiants(): EtudiantModel[] {
+    if (this.filtre === 'TOUS') 
+      return this.etudiantsAll;
+    return this.etudiantsAll.filter(e => e.classeLibelle === this.filtre);
+  }
 
   setupPagination() {
     const totalPages = Math.ceil(this.etudiantsAll.length / this.pageSize);
