@@ -28,8 +28,8 @@
                 <div *ngFor="let a of absencesAll" class="bg-orange-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
                 <div>
                     <p>
-                    <strong>{{ a.nonEtudiant }}</strong> {{ a.prenomEtudiant }} <br>
-                    <strong>{{ a.classeEtudiant }}</strong>
+                    Etudiant: <strong> {{ a.nonEtudiant }}-{{ a.prenomEtudiant }}</strong> <br>
+                    classe : <strong>{{ a.classeEtudiant }}</strong>
                     </p>
                 </div>
                 <div class="flex justify-between text-sm">
@@ -47,13 +47,13 @@
             <div class="space-y-4 text-sm overflow-y-auto max-h-[300px] pr-2">
                 <div *ngFor="let j of justificationsAll" class="bg-green-50 p-4 rounded-lg shadow-sm flex justify-between items-center">
                 <div>
-                    <strong>Nom Complet:</strong> - {{ j.nomCompletEtudiant }} <br>
-                    Classe: <strong> {{ j.classeEtudiant }}</strong><br>
-                    <span>statut: <strong class="text-pink-600">{{ j.statut }}</strong></span>
+                    Etudiant : <strong>{{ j.nomCompletEtudiant }} </strong> <br>
+                    Classe : <strong> {{ j.classeEtudiant }}</strong><br>
+                    <span>statut : <strong class="text-pink-600">{{ j.statut }}</strong></span>
                 </div>
-                <!-- <div class="space-x-2">
+                <div class="space-x-2">
                     <button class="bg-[#5c3b28] text-white px-3 py-1 rounded hover:bg-[#40291c] transition">Détails</button>
-                </div> -->
+                </div>
                 </div>
             </div>
             </div>

@@ -4,6 +4,6 @@ export interface EtudiantModel {
   nom: string;
   prenom: string;
   matricule: string;
-  classe: string;
+  classeLibelle: string;
   telephone:string; 
 }
