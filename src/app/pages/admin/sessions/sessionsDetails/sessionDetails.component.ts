@@ -36,14 +36,19 @@ export class SessionDetailsComponent implements OnInit {
         this.setupPagination();
         this.goToPage(0);
       });
+
+
   }
 
+  voirDetails(absenceId: string) {
+    this.router.navigate(['/admin/justification', absenceId, 'justification']);
+  }
 
-
-voirDetails(pointage: PointageModel) {
-  this.router.navigate(['/justification', pointage.id]); // pointage.id = absenceId
+  filtrerEtPaginer() {
+  this.currentPage = 0;
+  this.pointagesFiltresParPage = this.getFilteredPointages().slice(0, this.pageSize);
+  this.setupPagination();
 }
-
 
   getFilteredPointages(): PointageModel[] {
     if (this.filtre === 'TOUS') 

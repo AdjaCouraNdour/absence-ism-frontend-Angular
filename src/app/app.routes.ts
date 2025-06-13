@@ -32,7 +32,7 @@ export const routes: Routes = [
                 component: SessionDetailsComponent
             },
             {
-                path: 'justification/:id',
+                path: 'justification/:absenceId/justification',
                 component: JustificationComponent
             },
             {

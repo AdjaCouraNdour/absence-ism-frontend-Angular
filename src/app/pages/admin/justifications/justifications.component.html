@@ -1,8 +1,7 @@
-<!-- <div class="container mx-auto p-10">
-  <h1 class="text-2xl font-bold text-[#5c2b0b] mb-2">Details de la Justification</h1> -->
 
-<div *ngIf="justificationDetails" class="p-6 max-w-lg mx-auto bg-white shadow-md rounded">
-  <h2 class="text-2xl font-bold mb-4">Détails de la justification</h2>
+  <h2 class="text-2xl bg-orange-50 font-bold mb-4">Détails de la justification</h2>
+
+  <div *ngIf="justificationDetails" class="p-6 max-w-lg mx-auto bg-white shadow-md rounded">
   <p><strong>Commentaire :</strong> {{ justificationDetails?.commentaire }}</p>
   <p><strong>Fichier :</strong> <a [href]="justificationDetails?.fichierUrl" target="_blank" class="text-blue-600 underline">Voir le fichier</a></p>
   <p><strong>Statut :</strong> {{ justificationDetails?.statut }}</p>
