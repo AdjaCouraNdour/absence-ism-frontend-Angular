@@ -35,6 +35,7 @@ export const routes: Routes = [
                 path: 'justification/:absenceId/justification',
                 component: JustificationComponent
             },
+
             {
                 path: '',
                 component: DashboardComponent

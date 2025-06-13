@@ -19,7 +19,7 @@ export class SessionsComponent implements OnInit {
   sessionsPerPage: SessionModel[] = [];
 
   currentPage = 0;
-  pageSize = 5
+  pageSize = 3
   pages: number[] = [];
 
   ngOnInit(): void {

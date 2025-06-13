@@ -1,8 +1,9 @@
 export interface SessionModel {
       id : string;
-      date :string;
+      dateSession :string;
       heureDebut:string;
       heureFin:string;
+      nombreHeures:string;
       mode: string;
       salle: string;
       etudiant: string;

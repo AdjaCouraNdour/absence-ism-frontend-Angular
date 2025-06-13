@@ -7,5 +7,4 @@ export interface ISessionService {
     getById(Id: number): Observable<SessionModel> ;
     getSessionsDuJour() : Observable<SessionModel>;
 
-    
 }
