@@ -46,6 +46,7 @@ export class SessionDetailsComponent implements OnInit {
   this.setupPagination();
 }
 
+
   getFilteredPointages(): PointageModel[] {
     if (this.filtre === 'TOUS') 
       return this.pointagesAll;
