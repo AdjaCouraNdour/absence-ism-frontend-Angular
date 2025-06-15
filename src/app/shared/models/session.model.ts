@@ -1,6 +1,6 @@
 export interface SessionModel {
       id : string;
-      dateSession :string;
+      date :string;
       heureDebut:string;
       heureFin:string;
       nombreHeures:string;

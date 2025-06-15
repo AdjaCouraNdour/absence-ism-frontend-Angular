@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import { PointageModel } from '../../models/pointage.model';
 import { IJustificationService } from '../IJustificationService';
 import { JustificationModel } from '../../models/Justification.model';
 @Injectable({
@@ -16,8 +15,8 @@ export class JustificationService implements IJustificationService{
       return this.httpClient.get<any>(this.apiUrl);
     }
    
-    getById(absenceId: string): Observable<JustificationModel> {
-      return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}/justification`);
+    getById(justificationId: string): Observable<JustificationModel> {
+      return this.httpClient.get<any>(`${this.apiUrl}/${justificationId}`);
     }
     getByAbsenceId(absenceId: string): Observable<JustificationModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);

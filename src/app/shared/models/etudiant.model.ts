@@ -5,5 +5,7 @@ export interface EtudiantModel {
   prenom: string;
   matricule: string;
   classeLibelle: string;
+  classe :string;
   telephone:string; 
+
 }

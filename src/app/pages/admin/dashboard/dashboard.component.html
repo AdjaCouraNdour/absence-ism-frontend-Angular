@@ -52,11 +52,14 @@
                     <span>statut : <strong class="text-pink-600">{{ j.statut }}</strong></span>
                 </div>
                 <div class="space-x-2">
-                    <button class="bg-[#5c3b28] text-white px-3 py-1 rounded hover:bg-[#40291c] transition">Détails</button>
+                  <button 
+                    class="bg-[#5c2b0b] text-white px-3 py-1 rounded hover:bg-[#7a3a0d] transition"
+                    (click)="voirDetails(j.id)">
+                      Details
+                  </button>               
                 </div>
-                </div>
+              </div>
             </div>
-            </div>
-
+          </div>
     </div>
 </div>

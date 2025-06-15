@@ -14,7 +14,7 @@ export class SessionService implements ISessionService{
   
     getSessionsDuJour(): Observable<any>  {
       const date = this.getDateDuJour();
-      return this.httpClient.get<any[]>(`${this.apiUrl}/duJour?date=${encodeURIComponent(date)}`);
+      return this.httpClient.get<any[]>(`${this.apiUrl}?date=${encodeURIComponent(date)}`);
     }
     
     getDateDuJour(): string {

@@ -21,6 +21,7 @@ export const routes: Routes = [
       { path: 'absences', component: AbsencesComponent },
       { path: 'absences/session/:sessionId', component: SessionDetailsComponent },
       { path: 'justification/:absenceId/justification', component: JustificationComponent },
+      { path: 'justification/:justificationId', component: JustificationComponent },
       { path: '', component: DashboardComponent }
     ]
   },
