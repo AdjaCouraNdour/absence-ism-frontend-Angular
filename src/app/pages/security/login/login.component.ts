@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
           if (utilisateur.role === "ADMIN") {
             this.router.navigateByUrl("/admin");
           } else if (utilisateur.role === "ETUDIANT") {
-            this.router.navigateByUrl("/etudiants/absences");
+            this.router.navigateByUrl("/admin");
           } else {
             this.errorMessage = "Accès refusé. Rôle inconnu.";
           }
