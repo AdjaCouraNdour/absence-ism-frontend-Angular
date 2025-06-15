@@ -1,14 +1,13 @@
-<!-- <div class="min-h-screen flex items-center justify-center bg-[#fef1e7]">
-  <div class="border-2 border-blue-500 rounded-md w-[80%] flex bg-white shadow-xl p-10">
+<div class="min-h-screen flex items-center justify-center bg-orange-50">
+  <div class="border-2 border-orange-50 rounded-lg w-[80%] flex bg-white shadow-xl p-10">
 
     <div class="w-1/2 flex flex-col items-center justify-center space-y-6">
-      <img src="assets/logo-cap.png" alt="logo" class="w-40 h-40" />
+      <img src="https://edukiya.com/wp-content/uploads/2020/05/ISM-Dakar-Senegal.jpg" alt="logo" class="w-40 h-40" />
       <h1 class="text-lg font-semibold text-center">Système de Gestion des Absences</h1>
     </div>
 
-
-    <form  class="w-1/2 flex flex-col justify-center items-center">
-      <img src="assets/logo-ism.png" alt="ISM" class="w-20 h-20 mb-2" />
+    <form [formGroup]="formLogin" (ngSubmit)="onLogin()" class="w-1/2 flex flex-col justify-center items-center">
+      <img src="https://edukiya.com/wp-content/uploads/2020/05/ISM-Dakar-Senegal.jpg" alt="ISM" class="w-20 h-20 mb-2" />
       <h2 class="text-xl font-bold mb-5">Connexion</h2>
 
       <div class="mb-4 w-3/4">
@@ -22,7 +21,6 @@
         />
         <div class="text-red-500 text-sm mt-1" *ngIf="formLogin.get('login')?.touched && formLogin.get('login')?.invalid">
           <span *ngIf="formLogin.get('login')?.errors?.['required']">Champ obligatoire</span>
-          <span *ngIf="formLogin.get('login')?.errors?.['email']">Email invalide</span>
         </div>
       </div>
 
@@ -38,7 +36,7 @@
         <span class="absolute right-3 top-8 cursor-pointer" (click)="togglePassword()">👁️</span>
         <div class="text-red-500 text-sm mt-1" *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.invalid">
           <span *ngIf="formLogin.get('password')?.errors?.['required']">Champ obligatoire</span>
-          <span *ngIf="formLogin.get('password')?.errors?.['minlength']">Minimum 6 caractères</span>
+          <span *ngIf="formLogin.get('password')?.errors?.['minlength']">Minimum 3 caractères</span>
         </div>
       </div>
 
@@ -55,4 +53,4 @@
       <p class="text-red-600 text-sm mt-2" *ngIf="errorMessage">{{ errorMessage }}</p>
     </form>
   </div>
-</div> -->
+</div>

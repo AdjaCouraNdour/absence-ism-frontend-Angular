@@ -1,25 +1,27 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginResponse, User, Role } from '../../models/user.model';
+import { User, Role } from '../../models/user.model';
 import { IAuthService } from '../IAuthService';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService implements IAuthService {
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/utilisateurs'; 
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/utilisateurs/login'; 
     currentUserSignal = signal<User | null>(null);
 
   constructor(private http: HttpClient) {}
 
-  Login(username: string, password: string): Observable<LoginResponse> {
+
+  Login(login: string, motDePasse: string): Observable<any> {
     return new Observable(observer => {
-      this.http.post<LoginResponse>(`${this.apiUrl}/login`, { username, password })
+      this.http.post<any>(`${this.apiUrl}`, { login, motDePasse })
         .subscribe(response => {
-          if (response.success) {
-            this.currentUserSignal.set(response.data);
-            // Optionnel : stocker le token JWT dans le localStorage
-            // localStorage.setItem('token', response.token); hei adja coura ndour il faut remplir sa apres hihi
-          }
+          const utilisateur = response.results.utilisateur;
+          const token = response.results.token;
+
+          this.currentUserSignal.set(utilisateur);
+          localStorage.setItem('token', token);
+
           observer.next(response);
           observer.complete();
         }, err => {
@@ -27,6 +29,8 @@ export class AuthService implements IAuthService {
         });
     });
   }
+
+
 
   isAuthenticated(): boolean {
     return !!this.currentUserSignal();

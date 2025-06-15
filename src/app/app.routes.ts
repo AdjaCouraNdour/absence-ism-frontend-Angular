@@ -11,56 +11,29 @@ import { SessionDetailsComponent } from './pages/admin/sessions/sessionsDetails/
 import { EtudiantAbsencesComponent } from './pages/admin/etudiants/listeAbsences/etudiantAbsences.component';
 
 export const routes: Routes = [
-    {
-        
-        path: "admin",
-        component: AdminComponent,
-        children: [
-            {
-                path: 'etudiants',
-                component: EtudiantsComponent
-            }, 
-            {
-                path: 'etudiant/:etudiantId',
-                component: EtudiantAbsencesComponent
-            },
-            {
-                path: 'sessions',
-                component: SessionsComponent
-            },
-            {
-                path: 'absences',
-                component: AbsencesComponent
-            },
-            {
-                path: 'absences/session/:sessionId',
-                component: SessionDetailsComponent
-            },
-            {
-                path: 'justification/:absenceId/justification',
-                component: JustificationComponent
-            },
-
-            {
-                path: '',
-                component: DashboardComponent
-            },
-            
-        ]
-    },
-    {
-        path: "security",
-        component: SecurityComponent,
-        children: [
-            {
-                path: '',
-                component: LoginComponent
-            }
-        ]
-    },
-    {
-        path:'',
-        redirectTo: '/admin',
-        pathMatch: 'full'
-    },
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      { path: 'etudiants', component: EtudiantsComponent },
+      { path: 'etudiant/:etudiantId', component: EtudiantAbsencesComponent },
+      { path: 'sessions', component: SessionsComponent },
+      { path: 'absences', component: AbsencesComponent },
+      { path: 'absences/session/:sessionId', component: SessionDetailsComponent },
+      { path: 'justification/:absenceId/justification', component: JustificationComponent },
+      { path: '', component: DashboardComponent }
+    ]
+  },
+  {
+    path: "security",
+    component: SecurityComponent,
+    children: [
+      { path: '', component: LoginComponent }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/security',
+    pathMatch: 'full'
+  }
 ];

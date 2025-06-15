@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginResponse } from '../../../shared/models/user.model';
 import { AuthService } from '../../../shared/services/impl/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ism-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'], // 👈 bien au pluriel ici
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule ,CommonModule],
 })
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
@@ -19,13 +20,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private authService: AuthService,
     private router: Router,
   ) {
     this.formLogin = this.formBuilder.group({
       login: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
   }
 
@@ -44,6 +44,8 @@ export class LoginComponent implements OnInit {
         if (response.success && response.data) {
           if (response.data.role === "ADMIN") {
             this.router.navigateByUrl("/admin");
+          } else if (response.data.role === "ETUDIANT") {
+          this.router.navigateByUrl("/etudiants/absences"); 
           } else {
             this.errorMessage = "Accès refusé. Seul un administrateur peut se connecter.";
           }
