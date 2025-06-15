@@ -1,8 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User, Role } from '../../models/user.model';
 import { IAuthService } from '../IAuthService';
+import { Role, User } from '../../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService implements IAuthService {

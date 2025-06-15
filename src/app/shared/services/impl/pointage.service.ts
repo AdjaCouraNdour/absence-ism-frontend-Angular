@@ -8,7 +8,7 @@ import { PointageModel } from '../../models/pointage.model';
 })
 export class PointageService implements IPointageService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/absences';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/pointages';
 
   
     getAllPointages(): Observable<any> {

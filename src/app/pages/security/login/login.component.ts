@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LoginResponse } from '../../../shared/models/user.model';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/services/impl/auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ism-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'], // 👈 bien au pluriel ici
+  styleUrls: ['./login.component.css'],
   standalone: true,
   imports: [ReactiveFormsModule ,CommonModule],
 })
@@ -66,7 +65,7 @@ export class LoginComponent implements OnInit {
     const user = this.authService.currentUserSignal();
     if (user) {
       if (user.role === "ADMIN") {
-        this.router.navigateByUrl("/pointages/absences");
+        this.router.navigateByUrl("/dashboard");
       } else {
         this.router.navigateByUrl("/etudiants/absences");
       }

@@ -9,15 +9,15 @@ import { SessionModel } from '../../models/session.model';
 })
 export class SessionService implements ISessionService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/sessions';
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/sessions/all';
                     
   
     getSessionsDuJour(): Observable<any>  {
-        const date = this.getDateDuJour();
-        return this.httpClient.get<any[]>(`${this.apiUrl}/duJour?date=${encodeURIComponent(date)}`);
-      }
+      const date = this.getDateDuJour();
+      return this.httpClient.get<any[]>(`${this.apiUrl}/duJour?date=${encodeURIComponent(date)}`);
+    }
     
-      getDateDuJour(): string {
+    getDateDuJour(): string {
       const today = new Date();
       const day = String(today.getDate()).padStart(2, '0');
       const month = String(today.getMonth() + 1).padStart(2, '0');

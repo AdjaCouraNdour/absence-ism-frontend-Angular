@@ -5,6 +5,8 @@ export interface SessionModel {
       heureFin:string;
       nombreHeures:string;
       mode: string;
-      salle: string;
+      salleCours: string;
+      classeLibelle:string
+      coursLibelle:string;
       etudiant: string;
 }
