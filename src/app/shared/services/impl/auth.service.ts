@@ -6,31 +6,30 @@ import { IAuthService } from '../IAuthService';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService implements IAuthService {
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/utilisateurs/login'; 
-    currentUserSignal = signal<User | null>(null);
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/utilisateurs/login';
+  currentUserSignal = signal<User | null>(null);
 
   constructor(private http: HttpClient) {}
 
-
   Login(login: string, motDePasse: string): Observable<any> {
     return new Observable(observer => {
-      this.http.post<any>(`${this.apiUrl}`, { login, motDePasse })
-        .subscribe(response => {
-          const utilisateur = response.results.utilisateur;
-          const token = response.results.token;
+      this.http.post<any>(this.apiUrl, { login, motDePasse }).subscribe({
+        next: (response) => {
+          const utilisateur = response?.results?.utilisateur;
+          const token = response?.results?.token;
 
-          this.currentUserSignal.set(utilisateur);
-          localStorage.setItem('token', token);
+          if (utilisateur && token) {
+            this.currentUserSignal.set(utilisateur);
+            localStorage.setItem('token', token);
+          }
 
           observer.next(response);
           observer.complete();
-        }, err => {
-          observer.error(err);
-        });
+        },
+        error: (err) => observer.error(err),
+      });
     });
   }
-
-
 
   isAuthenticated(): boolean {
     return !!this.currentUserSignal();
@@ -51,5 +50,9 @@ export class AuthService implements IAuthService {
 
   getAdminId(): string | null {
     return this.currentUserSignal()?.id ?? null;
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

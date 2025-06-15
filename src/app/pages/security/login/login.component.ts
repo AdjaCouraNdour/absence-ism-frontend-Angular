@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.formLogin = this.formBuilder.group({
       login: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      motDePasse: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
   }
 
@@ -37,27 +37,27 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.invalid) return;
 
     this.loading = true;
-    const { login, password } = this.formLogin.value;
+    const { login, motDePasse } = this.formLogin.value;
 
-    this.authService.Login(login, password).subscribe({
-      next: (response: LoginResponse) => {
-        if (response.success && response.data) {
-          if (response.data.role === "ADMIN") {
+    this.authService.Login(login, motDePasse).subscribe({
+      next: (response) => {
+        const utilisateur = response?.results?.utilisateur;
+        const token = response?.results?.token;
+
+        if (utilisateur && token) {
+          this.authService.currentUserSignal.set(utilisateur);
+          localStorage.setItem('token', token);
+
+          if (utilisateur.role === "ADMIN") {
             this.router.navigateByUrl("/admin");
-          } else if (response.data.role === "ETUDIANT") {
-          this.router.navigateByUrl("/etudiants/absences"); 
+          } else if (utilisateur.role === "ETUDIANT") {
+            this.router.navigateByUrl("/etudiants/absences");
           } else {
-            this.errorMessage = "Accès refusé. Seul un administrateur peut se connecter.";
+            this.errorMessage = "Accès refusé. Rôle inconnu.";
           }
         } else {
-          this.errorMessage = response.message || "Login ou mot de passe incorrect.";
+          this.errorMessage = "Login ou mot de passe incorrect.";
         }
-      },
-      error: (err) => {
-        this.errorMessage = err?.error?.message || "Erreur côté serveur.";
-      },
-      complete: () => {
-        this.loading = false;
       }
     });
   }

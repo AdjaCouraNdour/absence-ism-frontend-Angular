@@ -1,5 +1,5 @@
 <div class="min-h-screen flex items-center justify-center bg-orange-50">
-  <div class="border-2 border-orange-50 rounded-lg w-[80%] flex bg-white shadow-xl p-10">
+  <div class="border-2 border-orange-50 rounded-l w-[80%] flex bg-white shadow-xl p-10">
 
     <div class="w-1/2 flex flex-col items-center justify-center space-y-6">
       <img src="https://edukiya.com/wp-content/uploads/2020/05/ISM-Dakar-Senegal.jpg" alt="logo" class="w-40 h-40" />
@@ -27,16 +27,16 @@
       <div class="mb-4 w-3/4 relative">
         <label class="text-sm font-medium text-gray-700">Mot de passe</label>
         <input
-          formControlName="password"
+          formControlName="motDePasse"
           [type]="showPassword ? 'text' : 'password'"
           placeholder="••••••••"
           class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5 pr-10"
           required
         />
         <span class="absolute right-3 top-8 cursor-pointer" (click)="togglePassword()">👁️</span>
-        <div class="text-red-500 text-sm mt-1" *ngIf="formLogin.get('password')?.touched && formLogin.get('password')?.invalid">
-          <span *ngIf="formLogin.get('password')?.errors?.['required']">Champ obligatoire</span>
-          <span *ngIf="formLogin.get('password')?.errors?.['minlength']">Minimum 3 caractères</span>
+        <div class="text-red-500 text-sm mt-1" *ngIf="formLogin.get('motDePasse')?.touched && formLogin.get('motDePasse')?.invalid">
+          <span *ngIf="formLogin.get('motDePasse')?.errors?.['required']">Champ obligatoire</span>
+          <span *ngIf="formLogin.get('motDePasse')?.errors?.['minlength']">Minimum 3 caractères</span>
         </div>
       </div>
 

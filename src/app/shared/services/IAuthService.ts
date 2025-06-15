@@ -4,7 +4,7 @@ import { LoginResponse, Role } from "../models/user.model";
 export interface IAuthService {
 
     
-    Login(username: string, password: string): Observable<any>;
+    Login(login: string, motDePasse: string): Observable<any>;
     Logout(): void;
     isAuthenticated(): boolean;
     isAdmin(): boolean;
