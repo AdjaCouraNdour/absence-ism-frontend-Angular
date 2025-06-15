@@ -21,7 +21,7 @@ export class EtudiantService {
     getListeAbsences(etudiantId:string ): Observable<EtudiantModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${etudiantId}`);
     }
-    getListeAbsencesByEtudiantId(etudiantId: string): Observable<PointageModel> {
+    getListeAbsencesByEtudiantId(etudiantId: string): Observable<any> {
           return this.httpClient.get<any>(`${this.apiUrl}/${etudiantId}/absences`);
         }
     
