@@ -10,11 +10,11 @@ import { SessionModel } from '../../../shared/models/session.model';
 
 @Component({
   selector: 'app-justifications',
-  templateUrl: './justifications.component.html',
+  templateUrl: './justificationsSessions.component.html',
   standalone: true,
   imports: [CommonModule],
 })
-export class JustificationComponent implements OnInit {
+export class JustificationSessionsComponent implements OnInit {
   private justificationService = inject(JustificationService);
   private etudiantService = inject(EtudiantService);
   private sessionService = inject(SessionService);

@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionDetailsComponent } from './pages/admin/sessions/sessionsDetails/sessionDetails.component';
 import { EtudiantAbsencesComponent } from './pages/admin/etudiants/listeAbsences/etudiantAbsences.component';
+import { JustificationAbsencesComponent } from './pages/admin/justificationsAbsences/justificationsAbsences.component';
+import { JustificationSessionsComponent } from './pages/admin/justificationsSessions/justificationsSessions.component';
 
 export const routes: Routes = [
   {
@@ -20,9 +22,11 @@ export const routes: Routes = [
       { path: 'sessions', component: SessionsComponent },
       { path: 'absences', component: AbsencesComponent },
       { path: 'absences/session/:sessionId', component: SessionDetailsComponent },
-      { path: 'justification/:absenceId/justification', component: JustificationComponent },
       { path: 'justification/:justificationId', component: JustificationComponent },
+      { path: 'etudiant/:etudiantId/absence/:absenceId/justification', component: JustificationAbsencesComponent },
+      { path: 'session/:sessionId/absence/:absenceId/justification', component: JustificationSessionsComponent },
       { path: '', component: DashboardComponent }
+
     ]
   },
   {

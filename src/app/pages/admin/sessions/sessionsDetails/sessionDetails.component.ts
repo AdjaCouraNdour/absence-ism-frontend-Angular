@@ -17,7 +17,8 @@ export class SessionDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   pointagesAll: PointageModel[] = [];
-
+  sessionId!: string;
+  
   filtre: 'TOUS' | 'ABSENCE' | 'RETARD' | 'PRESENT' = 'TOUS';
 
   pointagesFiltresParPage: PointageModel[] = [];
@@ -26,8 +27,8 @@ export class SessionDetailsComponent implements OnInit {
   pages: number[] = [];
 
   ngOnInit(): void {
-    const sessionId = String(this.route.snapshot.paramMap.get('sessionId'));
-    this.pointageService.getAllPointagesDuneSessionDuJour(sessionId)
+    this.sessionId = String(this.route.snapshot.paramMap.get('sessionId'));
+    this.pointageService.getAllPointagesDuneSessionDuJour(this.sessionId)
       .subscribe((response: any) => {
         this.pointagesAll = response.results;
         console.log("Pointages récupérés :", this.pointagesAll);
@@ -35,9 +36,10 @@ export class SessionDetailsComponent implements OnInit {
         this.goToPage(0);
       });
   }
+  
 
   voirDetails(absenceId: string) {
-    this.router.navigate(['/admin/justification', absenceId, 'justification']);
+    this.router.navigate(['/admin/session', this.sessionId, 'absence', absenceId, 'justification']);
   }
 
   filtrerEtPaginer() {

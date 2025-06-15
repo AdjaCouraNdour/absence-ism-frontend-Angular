@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import { EtudiantModel } from '../../models/etudiant.model';
 import { PointageModel } from '../../models/pointage.model';
 
-// Singleton + Injection de dépendance
 @Injectable({
   providedIn: 'root'
 })

@@ -22,7 +22,7 @@ export class PointageService implements IPointageService{
     getAllPointagesByEtudiantId(IdEtudiant: String): Observable<PointageModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${IdEtudiant}`);
     } 
-    getById(Id: number): Observable<PointageModel> {
+    getById(Id: string): Observable<PointageModel> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }
 

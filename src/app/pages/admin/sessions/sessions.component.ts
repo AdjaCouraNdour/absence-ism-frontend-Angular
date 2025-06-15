@@ -36,19 +36,6 @@ export class SessionsComponent implements OnInit {
   }
 
 
-  // setupPagination() {
-  //   const totalPages = Math.ceil(this.sessionsAll.length / this.pageSize);
-  //   this.pages = Array(totalPages).fill(0).map((_, i) => i);
-  // }
-
-  // goToPage(page: number) {
-  //   if (page < 0 || page >= this.pages.length) return;
-  //   this.currentPage = page;
-  //   const start = page * this.pageSize;
-  //   const end = start + this.pageSize;
-  //   this.sessionsPerPage = this.sessionsAll.slice(start, end);
-  // }
-
   filtrerEtPaginer() {
   this.currentPage = 0;
   this.sessionsPerPage = this.getFilteredsessions().slice(0, this.pageSize);

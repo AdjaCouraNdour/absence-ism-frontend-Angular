@@ -24,7 +24,8 @@ export class DashboardComponent implements OnInit {
   absencesAll: PointageModel[] = [];
   justificationsAll: JustificationModel[] = [];
   justification : JustificationModel | null = null;
-
+  etudiantId: string | null = null;
+  sessionId: string | null = null;
   ngOnInit(): void {
     
     this.absencesService.getAllPointages()
@@ -42,7 +43,8 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-   voirDetails(justificationId: string) {
+  voirDetails(justificationId: string) {
     this.router.navigate(['/admin/justification', justificationId]);
-  }
+  } 
+
 }
