@@ -5,7 +5,6 @@ import { EtudiantService } from '../../../../shared/services/impl/etudiant.servi
 import { PointageModel } from '../../../../shared/models/pointage.model';
 import { EtudiantModel } from '../../../../shared/models/etudiant.model';
 
-
 @Component({
   selector: 'app-etudiants',
   standalone: true,
@@ -14,8 +13,8 @@ import { EtudiantModel } from '../../../../shared/models/etudiant.model';
   styleUrl: './etudiantAbsences.component.css'
 })
 export class EtudiantAbsencesComponent implements OnInit {
-  private etudiantsService: EtudiantService = inject(EtudiantService);
-   private router = inject(Router);
+  private etudiantsService = inject(EtudiantService);
+  private router = inject(Router);
   private route = inject(ActivatedRoute);
 
   absencesAll: PointageModel[] = [];
@@ -27,30 +26,54 @@ export class EtudiantAbsencesComponent implements OnInit {
   pageSize = 4;
   pages: number[] = [];
 
-  ngOnInit(): void {
-    
-    const etudiantId = String(this.route.snapshot.paramMap.get('etudiantId'));
+  loading = true;
+  loaded = { etudiant: false, absences: false };
 
-    this.etudiantsService.getById(etudiantId)
-     .subscribe({
+  ngOnInit(): void {
+    this.etudiantId = String(this.route.snapshot.paramMap.get('etudiantId'));
+
+    this.chargerEtudiant(this.etudiantId);
+    this.chargerAbsences(this.etudiantId);
+  }
+
+  private chargerEtudiant(id: string) {
+    this.etudiantsService.getById(id).subscribe({
       next: (data) => {
-        if (data?.results) {
-          this.etudiant = data.results;
-          console.log('Étudiant chargé :', this.etudiant);
-        } else {
-          console.warn('Aucun étudiant trouvé dans la réponse.');
-        }
+        this.etudiant = data?.results;
+        console.log('Étudiant chargé :', this.etudiant);
+        this.loaded.etudiant = true;
+        this.checkLoading();
+      },
+      error: (err) => {
+        console.error("Erreur lors du chargement de l'étudiant :", err);
+        this.loaded.etudiant = true;
+        this.checkLoading();
       }
     });
+  }
 
-  
-    this.etudiantsService.getListeAbsencesByEtudiantId(etudiantId)
-      .subscribe((response: any) => {
-        this.absencesAll = response.results;
-        console.log("absences récupérés :", this.absencesAll);
+  private chargerAbsences(id: string) {
+    this.etudiantsService.getListeAbsencesByEtudiantId(id).subscribe({
+      next: (response) => {
+        this.absencesAll = response.results ;
+        console.log("Absences récupérées :", this.absencesAll);
         this.setupPagination();
         this.goToPage(0);
-      });
+        this.loaded.absences = true;
+        this.checkLoading();
+      },
+      error: (err) => {
+        console.error("Erreur lors du chargement des absences :", err);
+        this.loaded.absences = true;
+        this.checkLoading();
+      }
+    });
+  }
+
+  private checkLoading() {
+    if (this.loaded.etudiant && this.loaded.absences) {
+      this.loading = false;
+    }
   }
 
   voirDetails(absenceId: string) {
@@ -59,7 +82,7 @@ export class EtudiantAbsencesComponent implements OnInit {
 
   setupPagination() {
     const totalPages = Math.ceil(this.absencesAll.length / this.pageSize);
-    this.pages = Array(totalPages).fill(0).map((_, i) => i);
+    this.pages = Array.from({ length: totalPages }, (_, i) => i);
   }
 
   goToPage(page: number) {

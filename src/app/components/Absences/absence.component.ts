@@ -19,9 +19,7 @@ export class AbsenceComponent {
 
   constructor(private router : Router ) {
   }
-  // onLoadViewJustifications(name : string){
-  //   this.router.navigateByUrl(`/Justification/${name}`)
-  // }
+
   absence$:Observable<PointageModel[]> = new Observable();
 
   protected readonly Array = Array;

@@ -1,31 +1,67 @@
+<div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 mt-10 border border-gray-100">
+  <h2 class="text-3xl font-bold text-orange-500 mb-6 text-center">📝 Détails de la justification</h2>
+   
+  <div class="flex space-x-6">
+      <p class="text-sm text-gray-700"><strong>Matricule :</strong> {{ etudiant?.matricule }} </p>
+      <p class="text-sm text-gray-700"><strong>Classe :</strong> {{ etudiant?.classe }} </p>
+      <p class="text-sm text-gray-700"><strong>Salle concernée :</strong> {{ session?.salleCours }} </p>
+      <p class="text-sm text-gray-700"><strong>Mode du cours </strong> {{ justificationDetails?.statut}} : {{ session?.mode }} </p>
+  </div>
 
-<h2 class="text-2xl bg-orange-50 font-bold mb-4">Détails de la justification</h2>
+  <div *ngIf="justificationDetails" class="space-y-4 text-gray-700 text-base leading-relaxed">
 
-<div *ngIf="justificationDetails" class="p-6 max-w-lg mx-auto bg-white shadow-md rounded">
-  <p><strong>Commentaire :</strong> {{ justificationDetails.commentaire }}</p>
-  <p><strong>Fichier :</strong> 
-    <a [href]="justificationDetails.fichierUrl" target="_blank" class="text-blue-600 underline">Voir le fichier</a>
-  </p>
-  <p><strong>Statut :</strong> {{ justificationDetails.statut }}</p>
-  <p><strong>Date de soumission :</strong> {{ justificationDetails.dateSoumission }}</p>
+    <p>
+      <span class="font-semibold text-gray-800">Fichier : </span> 
+      <a 
+        [href]="justificationDetails.fichierUrl" 
+        target="_blank" 
+        class="text-orange-600 underline hover:text-blue-800 transition"> 👉 Voir le fichier justificatif
+      </a>
+      <br>
+    </p>
 
-  <!-- Boutons d'action -->
-  <div class="flex justify-between mt-6">
+    <p>
+      <span class="font-semibold text-gray-800">Statut :</span><br>
+      <span 
+        [ngClass]="{
+          'text-green-600 font-bold': justificationDetails.statut === 'VALIDÉ',
+          'text-red-600 font-bold': justificationDetails.statut === 'REFUSÉ',
+          'text-yellow-600 font-bold': justificationDetails.statut === 'EN_ATTENTE'
+        }">
+        {{ justificationDetails.statut }}
+      </span>
+    </p>
+
+    <p>
+      <span class="font-semibold text-gray-800">Date de soumission :</span><br>
+      {{ justificationDetails.dateSoumission}}
+    </p>
+
+     <p>
+      <span class="font-semibold text-gray-800">Commentaire 📄  :</span><br>
+      {{ justificationDetails.commentaire }}
+    </p>
+  </div>
+
+  <div class="flex flex-col sm:flex-row justify-end items-center gap-4 mt-8">
     <button 
-      class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded" 
+      class="bg-green-600 hover:bg-green-700 text-white font-bold w-full sm:w-auto px-6 py-2 rounded transition duration-200"
       (click)="validerJustification()">
       Valider
     </button>
 
     <button 
-      class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded" 
+      class="bg-red-600 hover:bg-red-700 text-white font-bold w-full sm:w-auto px-6 py-2 rounded transition duration-200"
       (click)="refuserJustification()">
       Refuser
     </button>
   </div>
 
-  <!-- Retour -->
-  <button class="mt-6 bg-[#5c2b0b] text-white px-3 py-2 rounded" routerLink="/admin/absences">
-    Retour
-  </button>
+  <div class="mt-6 text-center">
+    <button 
+      routerLink="/admin" 
+      class="bg-[#5c2b0b] hover:bg-orange-900 text-white px-5 py-2 rounded transition duration-200">
+       Retour à la liste
+    </button>
+  </div>
 </div>

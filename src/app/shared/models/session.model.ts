@@ -1,4 +1,5 @@
 export interface SessionModel {
+     
       id : string;
       date :string;
       heureDebut:string;
@@ -9,4 +10,5 @@ export interface SessionModel {
       classeLibelle:string
       coursLibelle:string;
       etudiant: string;
+      
 }

@@ -4,7 +4,7 @@ import { SessionModel } from '../models/session.model';
 
 export interface ISessionService {
     getAllSessions(): Observable<SessionModel> ;
-    getById(Id: number): Observable<SessionModel> ;
+    getById(Id: string): Observable<SessionModel> ;
     getSessionsDuJour() : Observable<SessionModel>;
 
 }

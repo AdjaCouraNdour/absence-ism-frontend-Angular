@@ -9,8 +9,7 @@ import { SessionModel } from '../../models/session.model';
 })
 export class SessionService implements ISessionService{
 
-  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/sessions/all';
-                    
+  private apiUrl = 'https://gestion-absence-ism-dev.onrender.com/api/web/sessions';                    
   
     getSessionsDuJour(): Observable<any>  {
       const date = this.getDateDuJour();
@@ -28,7 +27,7 @@ export class SessionService implements ISessionService{
     getAllSessions(): Observable<any> {
       return this.httpClient.get<any>(this.apiUrl);
     }
-    getById(Id: number): Observable<SessionModel> {
+    getById(Id: string): Observable<any> {
       return this.httpClient.get<any>(`${this.apiUrl}/${Id}`);
     }
   constructor(private httpClient: HttpClient) { }
