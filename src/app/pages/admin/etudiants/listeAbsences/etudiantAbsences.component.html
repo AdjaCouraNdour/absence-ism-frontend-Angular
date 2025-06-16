@@ -27,6 +27,8 @@
         <table class="min-w-full text-center">
           <thead class="bg-[#5c2b0b] text-white">
             <tr>
+              <th class="px-4 py-2 font-semibold">Date</th>
+              <th class="px-4 py-2 font-semibold">Cours</th>
               <th class="px-4 py-2 font-semibold">Type</th>
               <th class="px-4 py-2 font-semibold">Justifié</th>
               <th class="px-4 py-2 font-semibold">Details</th>
@@ -34,6 +36,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let absence of absencesPerPage" class="shadow-sm my-2 hover:bg-gray-50 rounded-md">
+              <td class="px-4 py-2 text-sm text-gray-800">{{ absence.date }}</td>
+              <td class="px-4 py-2 text-sm text-gray-800">{{ absence.coursLibelle }}</td>
               <td class="px-4 py-2 text-sm text-gray-800">{{ absence.type }}</td>
               <td class="px-4 py-2 text-sm text-gray-800">{{ absence.justifiee }}</td>
               <td class="px-4 py-2">

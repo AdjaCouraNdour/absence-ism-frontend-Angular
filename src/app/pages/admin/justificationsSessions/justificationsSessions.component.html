@@ -3,12 +3,15 @@
 
   <div class="grid grid-cols-2 gap-4 text-gray-700 text-sm">
     <div>
-      <strong class="block text-gray-800">Nom complet</strong>
-      <span>{{ justificationDetails?.nomCompletEtudiant }}</span>
+      <strong class="block text-gray-800">Nom complet</strong> <span>{{ justificationDetails?.nomCompletEtudiant }}</span>
     </div>
     <div>
-      <strong class="block text-gray-800">Classe :</strong>
-      <span>{{ justificationDetails?.classeEtudiant }}</span>
+      <strong class="block text-gray-800">Classe :</strong><span>{{ justificationDetails?.classeEtudiant }}</span>
+      <strong class="block text-gray-800">Salle :</strong><span>{{ session?.salleCours }}</span>
+    </div>
+     <div>
+      <strong class="block text-gray-800">Mode :</strong><span>{{ session?.mode }}</span>
+      <strong class="block text-gray-800">nombre d'heure :</strong><span>{{ session?.nombreHeures }} heure (s)</span>
     </div>
   </div>
 

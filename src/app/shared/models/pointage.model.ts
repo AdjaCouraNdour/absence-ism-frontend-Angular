@@ -8,5 +8,6 @@ export interface PointageModel {
   sessionId: string;
   type: 'ABSENCE' | 'PRESENT' | 'RETARD';
   justifiee: boolean;
-  
+  date: string;
+  coursLibelle: string;
 }

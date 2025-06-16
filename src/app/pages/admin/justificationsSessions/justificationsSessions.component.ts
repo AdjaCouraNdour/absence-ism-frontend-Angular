@@ -72,7 +72,7 @@ export class JustificationSessionsComponent implements OnInit {
   private chargerSession(id: string) {
     this.sessionService.getById(id).subscribe({
       next: (data) => {
-        this.session = data;
+        this.session = data.results;
         console.log('Session chargée :', data);
         this.checkIfLoadingDone();
       },

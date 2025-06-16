@@ -2,7 +2,6 @@
   <h1 class="text-2xl font-bold text-[#5c2b0b] mb-2">Sessions du Jour</h1>
   
     <div class="flex  flex-col sm:flex-row sm:items-center sm:justify-end mb-6 gap-4">
-      <!-- <label for="filtre" class="font-semibold text-gray-700">Filtrer par :</label> -->
       <select id="filtre" [(ngModel)]="filtre" (ngModelChange)="filtrerEtPaginer();"
         class="w-full sm:w-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#5c2b0b] focus:border-[#5c2b0b]">
         <option value="TOUS">Tous</option>

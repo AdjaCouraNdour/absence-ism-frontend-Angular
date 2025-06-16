@@ -42,7 +42,7 @@ export class JustificationAbsencesComponent implements OnInit {
 
 
   private chargerJustification(id: string) {
-    this.justificationService.getById(id).subscribe({
+    this.justificationService.getByAbsenceId(id).subscribe({
       next: (data) => {
         this.justificationDetails = data.results;
         console.log('Justification chargée :', data);

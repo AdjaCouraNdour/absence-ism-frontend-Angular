@@ -16,6 +16,7 @@ export class SessionDetailsComponent implements OnInit {
   private pointageService = inject(PointageService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+
   pointagesAll: PointageModel[] = [];
   sessionId!: string;
   
@@ -39,7 +40,10 @@ export class SessionDetailsComponent implements OnInit {
   
 
   voirDetails(absenceId: string) {
-    this.router.navigate(['/admin/session', this.sessionId, 'absence', absenceId, 'justification']);
+    this.router.navigate([
+      '/admin/session', this.sessionId, 
+      'absence', absenceId, 
+      'justification']);
   }
 
   filtrerEtPaginer() {
