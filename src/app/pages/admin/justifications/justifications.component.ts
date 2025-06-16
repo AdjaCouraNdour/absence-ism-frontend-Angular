@@ -93,13 +93,6 @@ export class JustificationComponent implements OnInit {
   }
 
  validerJustification() {
-  const token = localStorage.getItem('token');
-  const headers = {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  };
-
   this.justificationService.traiterJustification(this.justificationId, 'VALIDEE').subscribe({
     next: () => {
       this.justificationDetails!.statut = 'VALIDEE';
@@ -114,13 +107,6 @@ export class JustificationComponent implements OnInit {
 }
 
 refuserJustification() {
-  const token = localStorage.getItem('token');
-  const headers = {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  };
-
   this.justificationService.traiterJustification(this.justificationId, 'REFUSEE').subscribe({
     next: () => {
       this.justificationDetails!.statut = 'REFUSEE';
