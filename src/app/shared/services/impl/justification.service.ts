@@ -24,17 +24,19 @@ export class JustificationService implements IJustificationService {
     return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}/justification`);
   }
 
-  traiterJustification(justificationId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
+ traiterJustification(justificationId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {
+  const token = localStorage.getItem('token');
 
-    const action = statut === 'VALIDEE' ? 'valider' : 'refuser';
-    return this.httpClient.post(
-      `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/justifications/${action}`,
-      {},
-      { headers }
-    );
-  }
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  };
+
+  return this.httpClient.post(
+    `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/valider`,
+    { statut }, // ou {} si ton backend ne veut rien
+    { headers }
+  );
+}
+
 }
