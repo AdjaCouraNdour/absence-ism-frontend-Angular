@@ -7,6 +7,7 @@ import { EtudiantModel } from '../../../shared/models/etudiant.model';
 import { EtudiantService } from '../../../shared/services/impl/etudiant.service';
 import { SessionService } from '../../../shared/services/impl/session.service';
 import { SessionModel } from '../../../shared/models/session.model';
+import { PointageModel } from '../../../shared/models/pointage.model';
 
 @Component({
   selector: 'app-justifications',
@@ -29,31 +30,38 @@ export class JustificationAbsencesComponent implements OnInit {
   session: SessionModel | null = null;
   sessionId!: string;
 
+  Absences: PointageModel | null = null; 
+  absenceId!: string;
+  
   loading = true;
 
   ngOnInit(): void {
     this.justificationId = this.route.snapshot.paramMap.get('justificationId')!;
     this.etudiantId = this.route.snapshot.paramMap.get('etudiantId')!;
-    this.sessionId = this.route.snapshot.paramMap.get('sessionId')!;    
-    this.chargerJustification(this.justificationId);
+    this.sessionId = this.route.snapshot.paramMap.get('sessionId')!;  
+      this.absenceId = this.route.snapshot.paramMap.get('absenceId')!;
+  
+    this.chargerJustification(this.absenceId);
     this.chargerEtudiant(this.etudiantId);
     this.chargerSession(this.sessionId);
   }
 
 
+
   private chargerJustification(id: string) {
-    this.justificationService.getById(id).subscribe({
+    this.justificationService.getByAbsenceId(id).subscribe({
       next: (data) => {
         this.justificationDetails = data.results;
         console.log('Justification chargée :', data);
         this.checkIfLoadingDone();
-      },
+      },  
       error: (err) => {
         console.error('Erreur lors du chargement de la justification :', err);
         this.checkIfLoadingDone();
       }
     });
   }
+
 
   private chargerEtudiant(id: string) {
     this.etudiantService.getById(id).subscribe({

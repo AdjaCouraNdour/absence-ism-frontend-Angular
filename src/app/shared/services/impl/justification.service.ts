@@ -19,7 +19,7 @@ export class JustificationService implements IJustificationService{
       return this.httpClient.get<any>(`${this.apiUrl}/${justificationId}`);
     }
     getByAbsenceId(absenceId: string): Observable<any> {
-      return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}`);
+      return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}/justification`);
     }
 
    traiterJustification(absenceId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {

@@ -53,11 +53,9 @@ export class SessionDetailsComponent implements OnInit {
   }
   
 
-  voirDetails(absenceId: string,justificationId:string) {
+  voirDetails(absenceId: string) {
     this.router.navigate([
-      '/admin/session', this.sessionId, 
-      'absence', absenceId, 
-      'justification']);
+      '/admin/session', this.sessionId, 'absence', absenceId, 'justification']);
   }
 
   filtrerEtPaginer() {

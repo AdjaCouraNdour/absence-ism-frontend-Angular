@@ -5,9 +5,8 @@
   <div>
     <strong class="block text-gray-800 mb-1">Nom complet</strong>
     <span>{{ justificationDetails?.nomCompletEtudiant }}</span>
-    <span>{{ etudiant?.prenom }}{{ etudiant?.nom }} </span>
+    <!-- <span>{{ etudiant?.prenom }}{{ etudiant?.nom }} </span> -->
   </div>
-
   <div>
     <strong class="block text-gray-800 mb-1">Classe</strong>
     <span>{{ justificationDetails?.classeEtudiant }}</span>
@@ -26,12 +25,12 @@
 </div>
 
 
-  <div *ngIf="justificationDetails" class="space-y-3 mt-6 text-gray-700 text-sm leading-snug">
+  <div class="space-y-3 mt-6 text-gray-700 text-sm leading-snug">
     
     <div>
       <strong class="text-gray-800">Fichier justificatif :     </strong>
       <a 
-        [href]="justificationDetails.fichierUrl" 
+        [href]="justificationDetails?.fichierUrl" 
         target="_blank" 
         class="inline-block mt-0.5 text-orange-600 underline hover:text-blue-800 transition-all">
         👉 Voir le fichier justificatif
@@ -43,22 +42,22 @@
       <span 
         class="ml-1 px-2 py-0.5 rounded-full text-xs font-semibold"
         [ngClass]="{
-          'bg-green-100 text-green-700': justificationDetails.statut === 'VALIDÉ',
-          'bg-red-100 text-red-700': justificationDetails.statut === 'REFUSÉ',
-          'bg-yellow-100 text-yellow-700': justificationDetails.statut === 'EN_ATTENTE'
+          'bg-green-100 text-green-700': justificationDetails?.statut === 'VALIDÉ',
+          'bg-red-100 text-red-700': justificationDetails?.statut === 'REFUSÉ',
+          'bg-yellow-100 text-yellow-700': justificationDetails?.statut === 'EN_ATTENTE'
         }">
-        {{ justificationDetails.statut }}
+        {{ justificationDetails?.statut }}
       </span>
     </div>
 
     <div>
       <strong class="text-gray-800">Date de soumission :</strong>
-      <span class="ml-1">{{ justificationDetails.dateSoumission }}</span>
+      <span class="ml-1">{{ justificationDetails?.dateSoumission }}</span>
     </div>
 
     <div>
       <strong class="text-gray-800">Commentaire :</strong>
-      <p class="mt-0.5 text-gray-600">{{ justificationDetails.commentaire }}</p>
+      <p class="mt-0.5 text-gray-600">{{ justificationDetails?.commentaire }}</p>
     </div>
   </div>
 
