@@ -1,19 +1,30 @@
 <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-10 p-6 mt-6 border border-gray-200">
   <h2 class="text-2xl font-bold text-orange-500 mb-5 text-center tracking-tight">📝 Détails de la justification</h2>
 
-  <div class="grid grid-cols-2 gap-4 text-gray-700 text-sm">
-    <div>
-      <strong class="block text-gray-800">Nom complet</strong> <span>{{ justificationDetails?.nomCompletEtudiant }}</span>
-    </div>
-    <div>
-      <strong class="block text-gray-800">Classe :</strong><span>{{ justificationDetails?.classeEtudiant }}</span>
-      <strong class="block text-gray-800">Salle :</strong><span>{{ session?.salleCours }}</span>
-    </div>
-     <div>
-      <strong class="block text-gray-800">Mode :</strong><span>{{ session?.mode }}</span>
-      <strong class="block text-gray-800">nombre d'heure :</strong><span>{{ session?.nombreHeures }} heure (s)</span>
-    </div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-800 bg-orange-50 border border-orange-200 rounded-xl shadow-sm p-4">
+  <div>
+    <strong class="block text-gray-800 mb-1">Nom complet</strong>
+    <span>{{ justificationDetails?.nomCompletEtudiant }}</span>
+    <span>{{ etudiant?.prenom }}{{ etudiant?.nom }} </span>
   </div>
+
+  <div>
+    <strong class="block text-gray-800 mb-1">Classe</strong>
+    <span>{{ justificationDetails?.classeEtudiant }}</span>
+
+    <strong class="block text-gray-800 mt-3 mb-1">Salle</strong>
+    <span>{{ session?.salleCours }}</span>
+  </div>
+
+  <div>
+    <strong class="block text-gray-800 mb-1">Mode</strong>
+    <span>{{ session?.mode }}</span>
+
+    <strong class="block text-gray-800 mt-3 mb-1">Nombre d'heure(s)</strong>
+    <span>{{ session?.nombreHeures }} heure(s)</span>
+  </div>
+</div>
+
 
   <div *ngIf="justificationDetails" class="space-y-3 mt-6 text-gray-700 text-sm leading-snug">
     

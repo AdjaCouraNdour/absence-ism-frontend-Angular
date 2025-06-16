@@ -89,25 +89,45 @@ export class JustificationComponent implements OnInit {
     }
   }
 
-  validerJustification() {
-    this.justificationService.traiterJustification(this.justificationId, 'VALIDEE').subscribe({
-      next: () => {
-        this.justificationDetails!.statut = 'VALIDEE';
-        alert('Justification validée');
-      },
-      error: () => alert('Erreur lors de la validation')
-    });
-  }
+ validerJustification() {
+  const token = localStorage.getItem('token'); // ou sessionStorage si tu l'utilises
+  const headers = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
 
-  refuserJustification() {
-    this.justificationService.traiterJustification(this.justificationId, 'REFUSEE').subscribe({
-      next: () => {
-        this.justificationDetails!.statut = 'REFUSEE';
-        alert('Justification refusée');
-      },
-      error: () => alert('Erreur lors du refus')
-    });
-  }
+this.justificationService.traiterJustification(this.justificationId, 'VALIDEE').subscribe({ 
+    next: () => {
+      this.justificationDetails!.statut = 'VALIDEE';
+      alert('Justification validée');
+    },
+    error: (err) => {
+      console.error('Erreur lors de la validation :', err);
+      alert('Erreur lors de la validation');
+    }
+  });
+}
+
+refuserJustification() {
+  const token = localStorage.getItem('token');
+  const headers = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+
+  this.justificationService.traiterJustification(this.justificationId, 'REFUSEE').subscribe({
+    next: () => {
+      this.justificationDetails!.statut = 'REFUSEE';
+      alert('Justification refusée');
+    },
+    error: (err) => {
+      console.error('Erreur lors du refus :', err);
+      alert('Erreur lors du refus');
+    }
+  });
+}
 
   goBack() {
     history.back();

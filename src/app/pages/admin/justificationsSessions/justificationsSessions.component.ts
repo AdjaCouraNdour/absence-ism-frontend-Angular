@@ -42,12 +42,12 @@ export class JustificationSessionsComponent implements OnInit {
 
 
   private chargerJustification(id: string) {
-    this.justificationService.getById(id).subscribe({
+    this.justificationService.getByAbsenceId(id).subscribe({
       next: (data) => {
         this.justificationDetails = data.results;
         console.log('Justification chargée :', data);
         this.checkIfLoadingDone();
-      },
+      },  
       error: (err) => {
         console.error('Erreur lors du chargement de la justification :', err);
         this.checkIfLoadingDone();

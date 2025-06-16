@@ -34,7 +34,7 @@ export class JustificationAbsencesComponent implements OnInit {
   ngOnInit(): void {
     this.justificationId = this.route.snapshot.paramMap.get('justificationId')!;
     this.etudiantId = this.route.snapshot.paramMap.get('etudiantId')!;
-    this.sessionId = this.route.snapshot.paramMap.get('sessionId')!;
+    this.sessionId = this.route.snapshot.paramMap.get('sessionId')!;    
     this.chargerJustification(this.justificationId);
     this.chargerEtudiant(this.etudiantId);
     this.chargerSession(this.sessionId);
@@ -42,7 +42,7 @@ export class JustificationAbsencesComponent implements OnInit {
 
 
   private chargerJustification(id: string) {
-    this.justificationService.getByAbsenceId(id).subscribe({
+    this.justificationService.getById(id).subscribe({
       next: (data) => {
         this.justificationDetails = data.results;
         console.log('Justification chargée :', data);
@@ -72,7 +72,7 @@ export class JustificationAbsencesComponent implements OnInit {
   private chargerSession(id: string) {
     this.sessionService.getById(id).subscribe({
       next: (data) => {
-        this.session = data;
+        this.session = data.results;
         console.log('Session chargée :', data);
         this.checkIfLoadingDone();
       },

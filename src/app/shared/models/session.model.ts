@@ -9,6 +9,7 @@ export interface SessionModel {
       salleCours: string;
       classeLibelle:string
       coursLibelle:string;
+      sessionCourslibelle:string;
       etudiant: string;
       
 }

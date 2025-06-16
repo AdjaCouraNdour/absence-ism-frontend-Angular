@@ -21,9 +21,9 @@ export const routes: Routes = [
       { path: 'etudiant/:etudiantId', component: EtudiantAbsencesComponent },
       { path: 'sessions', component: SessionsComponent },
       { path: 'absences', component: AbsencesComponent },
-      { path: 'absences/session/:sessionId', component: SessionDetailsComponent },
+      { path: 'session/:sessionId/absences', component: SessionDetailsComponent },
       { path: 'justification/:justificationId', component: JustificationComponent },
-      { path: 'etudiant/:etudiantId/absence/:absenceId/justification', component: JustificationAbsencesComponent },
+      { path: 'etudiant/:etudiantId/absence/:absenceId/session/:sessionId/justification', component: JustificationAbsencesComponent },
       { path: 'session/:sessionId/absence/:absenceId/justification', component: JustificationSessionsComponent },
       { path: '', component: DashboardComponent }
 

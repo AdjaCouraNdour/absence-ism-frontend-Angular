@@ -26,7 +26,7 @@ export class SessionComponent {
   session$:Observable<SessionModel[]> = new Observable();
   
   onLoadListeAbsences(sessionId: string) {
-    this.router.navigate([`/admin/absences/session/${sessionId}`]);
+    this.router.navigate([`/admin/session/${sessionId}/absences`]);
   }
 
   protected readonly Array = Array;

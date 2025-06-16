@@ -5,6 +5,8 @@ import { PointageModel } from '../../../../shared/models/pointage.model';
 import { PointageService } from '../../../../shared/services/impl/pointage.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { JustificationModel } from '../../../../shared/models/Justification.model';
+import { JustificationService } from '../../../../shared/services/impl/justification.service';
 
 @Component({
   selector: 'app-session-details',
@@ -14,12 +16,15 @@ import { CommonModule } from '@angular/common';
 export class SessionDetailsComponent implements OnInit {
 
   private pointageService = inject(PointageService);
+  private justificationService = inject(JustificationService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
   pointagesAll: PointageModel[] = [];
+  justificationAll: JustificationModel[] = [];
   sessionId!: string;
-  
+  justificationId!: string;
+
   filtre: 'TOUS' | 'ABSENCE' | 'RETARD' | 'PRESENT' = 'TOUS';
 
   pointagesFiltresParPage: PointageModel[] = [];
@@ -36,10 +41,19 @@ export class SessionDetailsComponent implements OnInit {
         this.setupPagination();
         this.goToPage(0);
       });
+
+    // this.justificationId = String(this.route.snapshot.paramMap.get('justificationId'));
+    // this.justificationService.getAllJustifications()
+    //   .subscribe((response: any) => {
+    //     this.pointagesAll = response.results;
+    //     console.log("Pointages récupérés :", this.pointagesAll);
+    //     this.setupPagination();
+    //     this.goToPage(0);
+    //   });
   }
   
 
-  voirDetails(absenceId: string) {
+  voirDetails(absenceId: string,justificationId:string) {
     this.router.navigate([
       '/admin/session', this.sessionId, 
       'absence', absenceId, 

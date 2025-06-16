@@ -43,19 +43,19 @@ export class EtudiantsComponent implements OnInit {
 
   filtrerEtPaginer() {
   this.currentPage = 0;
-  this.etudiantsPerPage = this.getFilteredEtudiants().slice(0, this.pageSize);
+  this.etudiantsPerPage = this.getetudiantsPerPage().slice(0, this.pageSize);
   this.setupPagination();
 }
 
-  getFilteredEtudiants(): EtudiantModel[] {
+  getetudiantsPerPage(): EtudiantModel[] {
     if (this.filtre === 'TOUS') 
       return this.etudiantsAll;
     return this.etudiantsAll.filter(e => e.classeLibelle === this.filtre);
   }
 
   setupPagination() {
-    const totalPages = Math.ceil(this.etudiantsAll.length / this.pageSize);
-    this.pages = Array(totalPages).fill(0).map((_, i) => i);
+    const totalPages = Math.ceil(this.getetudiantsPerPage().length / this.pageSize);
+    this.pages = Array.from({ length: totalPages }, (_, i) => i);
   }
 
   goToPage(page: number) {
@@ -63,6 +63,6 @@ export class EtudiantsComponent implements OnInit {
     this.currentPage = page;
     const start = page * this.pageSize;
     const end = start + this.pageSize;
-    this.etudiantsPerPage = this.etudiantsAll.slice(start, end);
+    this.etudiantsPerPage = this.getetudiantsPerPage().slice(start, end);
   }
 }

@@ -76,8 +76,8 @@ export class EtudiantAbsencesComponent implements OnInit {
     }
   }
 
-  voirDetails(absenceId: string) {
-    this.router.navigate(['/admin/etudiant', this.etudiantId, 'absence', absenceId, 'justification']);
+  voirDetails(absenceId: string, sessionId:string) {
+    this.router.navigate(['/admin/etudiant', this.etudiantId, 'absence', absenceId,'session',sessionId, 'justification']);
   }
 
   setupPagination() {
