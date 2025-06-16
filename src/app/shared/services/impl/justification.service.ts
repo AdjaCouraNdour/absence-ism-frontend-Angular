@@ -34,7 +34,7 @@ export class JustificationService implements IJustificationService {
 
   return this.httpClient.post(
     `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/valider`,
-    { statut }, // ou {} si ton backend ne veut rien
+    { statut }, 
     { headers }
   );
 }
