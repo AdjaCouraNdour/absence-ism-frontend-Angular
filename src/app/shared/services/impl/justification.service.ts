@@ -23,20 +23,11 @@ export class JustificationService implements IJustificationService {
   getByAbsenceId(absenceId: string): Observable<any> {
     return this.httpClient.get<any>(`${this.apiUrl}/${absenceId}/justification`);
   }
-
- traiterJustification(justificationId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {
-  const token = localStorage.getItem('token');
-
-  const headers = {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json'
-  };
-
-  return this.httpClient.post(
-    `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/valider`,
-    { statut }, 
-    { headers }
-  );
-}
+  traiterJustification(justificationId: string, statut: 'VALIDEE' | 'REFUSEE'): Observable<any> {
+    return this.httpClient.post(
+      `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/valider`,
+      { statut }
+    );
+  }
 
 }
