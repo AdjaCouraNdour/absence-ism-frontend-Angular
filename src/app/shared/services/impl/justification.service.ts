@@ -32,7 +32,7 @@ export class JustificationService implements IJustificationService {
 
     const action = statut === 'VALIDEE' ? 'valider' : 'refuser';
     return this.httpClient.post(
-      `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/${action}`,
+      `https://gestion-absence-ism-dev.onrender.com/api/web/admin/${justificationId}/justifications/${action}`,
       {},
       { headers }
     );
