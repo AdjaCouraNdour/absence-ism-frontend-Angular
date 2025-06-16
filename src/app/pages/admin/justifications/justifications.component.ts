@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { JustificationService } from '../../../shared/services/impl/justification.service';
 import { JustificationModel } from '../../../shared/models/Justification.model';
 import { CommonModule } from '@angular/common';
@@ -19,6 +20,8 @@ export class JustificationComponent implements OnInit {
   private etudiantService = inject(EtudiantService);
   private sessionService = inject(SessionService);
   private route = inject(ActivatedRoute);
+  constructor(private router : Router ) {
+  }
 
   justificationDetails: JustificationModel | null = null;
   justificationId!: string;
@@ -90,17 +93,18 @@ export class JustificationComponent implements OnInit {
   }
 
  validerJustification() {
-  const token = localStorage.getItem('token'); // ou sessionStorage si tu l'utilises
+  const token = localStorage.getItem('token');
   const headers = {
     headers: {
       Authorization: `Bearer ${token}`
     }
   };
 
-this.justificationService.traiterJustification(this.justificationId, 'VALIDEE').subscribe({ 
+  this.justificationService.traiterJustification(this.justificationId, 'VALIDEE').subscribe({
     next: () => {
       this.justificationDetails!.statut = 'VALIDEE';
       alert('Justification validée');
+      this.router.navigate(['/admin']); 
     },
     error: (err) => {
       console.error('Erreur lors de la validation :', err);
@@ -121,6 +125,7 @@ refuserJustification() {
     next: () => {
       this.justificationDetails!.statut = 'REFUSEE';
       alert('Justification refusée');
+      this.router.navigate(['/admin']); 
     },
     error: (err) => {
       console.error('Erreur lors du refus :', err);
@@ -128,6 +133,7 @@ refuserJustification() {
     }
   });
 }
+
 
   goBack() {
     history.back();
