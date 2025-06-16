@@ -43,6 +43,9 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  // get totalPresences(): number {
+  //   return this.absencesAll.filter(absencesAll => absencesAll. === 'PRESENT').length;
+  // }
   voirDetails(justificationId: string) {
     this.router.navigate(['/admin/justification', justificationId]);
   } 
