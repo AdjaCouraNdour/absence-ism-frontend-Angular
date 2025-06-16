@@ -41,21 +41,12 @@ export class SessionDetailsComponent implements OnInit {
         this.setupPagination();
         this.goToPage(0);
       });
-
-    // this.justificationId = String(this.route.snapshot.paramMap.get('justificationId'));
-    // this.justificationService.getAllJustifications()
-    //   .subscribe((response: any) => {
-    //     this.pointagesAll = response.results;
-    //     console.log("Pointages récupérés :", this.pointagesAll);
-    //     this.setupPagination();
-    //     this.goToPage(0);
-    //   });
   }
   
 
   voirDetails(absenceId: string) {
     this.router.navigate([
-      '/admin/session', this.sessionId, 'absence', absenceId, 'justification']);
+      '/admin/session', this.sessionId,'absence', absenceId, 'justification']);
   }
 
   filtrerEtPaginer() {
