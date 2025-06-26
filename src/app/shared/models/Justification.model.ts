@@ -4,7 +4,7 @@ export interface JustificationModel {
       classeEtudiant : string;
       absenceId : string;
       commentaire : string;
-      fichierUrl1 : 'https://res.cloudinary.com/dn1bzgrqk/image/upload/v1749754284/qhsrv3tunp6oxoj8ihma.png';
+      fichierUrl :string;
       statut : string;
       dateSoumission : string ;
      
